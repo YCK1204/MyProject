@@ -6,6 +6,7 @@ public enum PacketType : byte
 {
   NONE = 0,
   S_Test = 1,
+  C_Test = 2,
 };
 
 
@@ -19,6 +20,9 @@ static public class PacketTypeVerify
     {
       case PacketType.S_Test:
         result = S_TestVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.C_Test:
+        result = C_TestVerify.Verify(verifier, tablePos);
         break;
       default: result = true;
         break;

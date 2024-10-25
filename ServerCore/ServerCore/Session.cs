@@ -136,8 +136,8 @@ namespace ServerCore
             if (Interlocked.Exchange(ref _disconnect, 1) == 1)
                 return;
             OnDisconnect(_socket.RemoteEndPoint);
-            _socket.Close();
             _socket.Shutdown(SocketShutdown.Both);
+            _socket.Close();
         }
     }
 }

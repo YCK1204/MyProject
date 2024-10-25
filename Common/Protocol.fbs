@@ -2,9 +2,17 @@
 
 union PacketType {  // 유니온 정의
     S_Test,
+    C_Test,
 }
 
 table S_Test
 {
     test:string;
 }
+
+table C_Test
+{
+    test:string;
+}
+
+root_type S_Test;

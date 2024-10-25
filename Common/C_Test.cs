@@ -6,16 +6,15 @@ using global::System;
 using global::System.Collections.Generic;
 using global::Google.FlatBuffers;
 
-public struct S_Test : IFlatbufferObject
+public struct C_Test : IFlatbufferObject
 {
   private Table __p;
   public ByteBuffer ByteBuffer { get { return __p.bb; } }
   public static void ValidateVersion() { FlatBufferConstants.FLATBUFFERS_24_3_25(); }
-  public static S_Test GetRootAsS_Test(ByteBuffer _bb) { return GetRootAsS_Test(_bb, new S_Test()); }
-  public static S_Test GetRootAsS_Test(ByteBuffer _bb, S_Test obj) { return (obj.__assign(_bb.GetInt(_bb.Position) + _bb.Position, _bb)); }
-  public static bool VerifyS_Test(ByteBuffer _bb) {Google.FlatBuffers.Verifier verifier = new Google.FlatBuffers.Verifier(_bb); return verifier.VerifyBuffer("", false, S_TestVerify.Verify); }
+  public static C_Test GetRootAsC_Test(ByteBuffer _bb) { return GetRootAsC_Test(_bb, new C_Test()); }
+  public static C_Test GetRootAsC_Test(ByteBuffer _bb, C_Test obj) { return (obj.__assign(_bb.GetInt(_bb.Position) + _bb.Position, _bb)); }
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
-  public S_Test __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
+  public C_Test __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public string Test { get { int o = __p.__offset(4); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
 #if ENABLE_SPAN_T
@@ -25,25 +24,23 @@ public struct S_Test : IFlatbufferObject
 #endif
   public byte[] GetTestArray() { return __p.__vector_as_array<byte>(4); }
 
-  public static Offset<S_Test> CreateS_Test(FlatBufferBuilder builder,
+  public static Offset<C_Test> CreateC_Test(FlatBufferBuilder builder,
       StringOffset testOffset = default(StringOffset)) {
     builder.StartTable(1);
-    S_Test.AddTest(builder, testOffset);
-    return S_Test.EndS_Test(builder);
+    C_Test.AddTest(builder, testOffset);
+    return C_Test.EndC_Test(builder);
   }
 
-  public static void StartS_Test(FlatBufferBuilder builder) { builder.StartTable(1); }
+  public static void StartC_Test(FlatBufferBuilder builder) { builder.StartTable(1); }
   public static void AddTest(FlatBufferBuilder builder, StringOffset testOffset) { builder.AddOffset(0, testOffset.Value, 0); }
-  public static Offset<S_Test> EndS_Test(FlatBufferBuilder builder) {
+  public static Offset<C_Test> EndC_Test(FlatBufferBuilder builder) {
     int o = builder.EndTable();
-    return new Offset<S_Test>(o);
+    return new Offset<C_Test>(o);
   }
-  public static void FinishS_TestBuffer(FlatBufferBuilder builder, Offset<S_Test> offset) { builder.Finish(offset.Value); }
-  public static void FinishSizePrefixedS_TestBuffer(FlatBufferBuilder builder, Offset<S_Test> offset) { builder.FinishSizePrefixed(offset.Value); }
 }
 
 
-static public class S_TestVerify
+static public class C_TestVerify
 {
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {

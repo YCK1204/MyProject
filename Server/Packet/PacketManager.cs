@@ -13,7 +13,7 @@ public class PacketManager
     }
     void Register()
     {
-        _handler.Add((ushort)PacketType.C_Test, PacketHandler.C_TestHandler);
+        _handler.Add((ushort)PacketType.S_Test, PacketHandler.S_TestHandler);
 		
     }
     public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)

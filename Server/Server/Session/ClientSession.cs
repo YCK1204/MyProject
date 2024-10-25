@@ -1,4 +1,5 @@
-﻿using ServerCore;
+﻿using Server.Managers;
+using ServerCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Server.Session
 
         public override void OnRecvPacket(ArraySegment<byte> data)
         {
-            Console.WriteLine($"OnRecvPacket");
+            Manager.Packet.OnRecvPacket(this, data);
         }
 
         public override void OnSend(int numOfBytes)
