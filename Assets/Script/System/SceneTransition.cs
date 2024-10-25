@@ -1,10 +1,13 @@
 using System.Collections;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
     public string sceneToLoad;
+    public Vector2 playerPosition;
+   
 
     public void OnTriggerEnter2D(Collider2D other)
     {

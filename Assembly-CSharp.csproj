@@ -61,8 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\System\InputSystem.cs" />
+    <Compile Include="Assets\Throwhook.cs" />
     <Compile Include="Assets\Script\System\SceneTransition.cs" />
     <Compile Include="Assets\Script\System\MovementController.cs" />
+    <Compile Include="Assets\RopeScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
