@@ -64,6 +64,7 @@
     <Compile Include="Assets\Throwhook.cs" />
     <Compile Include="Assets\Script\System\SceneTransition.cs" />
     <Compile Include="Assets\Script\System\MovementController.cs" />
+    <Compile Include="Assets\Script\ObjectPool\TileObjectPool.cs" />
     <Compile Include="Assets\RopeScript.cs" />
   </ItemGroup>
   <ItemGroup>
