@@ -1,0 +1,10 @@
+// Protocol.fbs
+
+union PacketType {  // 유니온 정의
+    S_Test,
+}
+
+table S_Test
+{
+    test:string;
+}
