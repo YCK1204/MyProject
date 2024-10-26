@@ -61,18 +61,14 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\rope\RopeScript.cs" />
     <Compile Include="Assets\Script\ObjectPool\PoolManager.cs" />
     <Compile Include="Assets\Script\System\OnPlayerController.cs" />
     <Compile Include="Assets\Script\System\MovementController.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Script\Portal\Portal.cs" />
-    <Compile Include="Assets\RopeScript.cs" />
-    <Compile Include="Assets\Script\System\InputSystem.cs" />
-    <Compile Include="Assets\Throwhook.cs" />
     <Compile Include="Assets\Script\System\SceneTransition.cs" />
-    <Compile Include="Assets\Script\Character\CharacterSystem.cs" />
-    <Compile Include="Assets\RoomList.cs" />
-    <Compile Include="Assets\Script\Portal\PortalController.cs" />
+    <Compile Include="Assets\Script\rope\Throwhook.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

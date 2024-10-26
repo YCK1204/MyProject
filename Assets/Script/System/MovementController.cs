@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator anim;
-
+   
     [Header("MoveJump")]
     public float xInput;
 
@@ -15,6 +13,8 @@ public class MovementController : MonoBehaviour
 
     [SerializeField] public float moveSpeed;
     [SerializeField] public float jumpForce;
+
+    public GameObject portalPrefab;
 
     [Header("Collision check")]
     public bool isGrounded;
@@ -29,18 +29,21 @@ public class MovementController : MonoBehaviour
 
     void Update()
     {
-        CheckInput(); 
+        CheckInput();
         CollisionChecks();
         FlipController();
         AnimatorController();
+
+
+
     }
 
     private void AnimatorController()
     {
-        bool isMoving = rb.linearVelocity.x != 0;
+        bool isMoving = rb.linearVelocity.x != 0; // linearVelocity로 수정
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGrounded);
-        anim.SetFloat("yVelocity", rb.linearVelocity.y);
+        anim.SetFloat("yVelocity", rb.linearVelocity.y); // linearVelocity로 수정
     }
 
     private void Flip()
@@ -52,11 +55,11 @@ public class MovementController : MonoBehaviour
 
     private void FlipController()
     {
-        if (rb.linearVelocity.x > 0 && !facingRight)
+        if (rb.linearVelocity.x > 0 && !facingRight) // linearVelocity로 수정
         {
             Flip();
         }
-        else if (rb.linearVelocity.x < 0 && facingRight)
+        else if (rb.linearVelocity.x < 0 && facingRight) // linearVelocity로 수정
         {
             Flip();
         }
@@ -74,7 +77,7 @@ public class MovementController : MonoBehaviour
 
     private void Movement()
     {
-        rb.linearVelocity = new Vector2(xInput * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(xInput * moveSpeed, rb.linearVelocity.y); // linearVelocity로 수정
     }
 
     public void SetInput(float input)
@@ -86,13 +89,29 @@ public class MovementController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // linearVelocity로 수정
         }
     }
 
-    private void CheckInput() // �Է��� ó���ϴ� �޼��� �߰�
+    private void CheckInput()
     {
-        // �� �޼���� ���⼭ ������� ������, OnPlayerController���� ó��
-        // xInput�� ���� �����ϴ� �޼��带 OnPlayerController���� ȣ��
+        // 예시: 입력 체크 로직 (UI 버튼 클릭 또는 키 입력 등)
+        // 예를 들어, xInput에 값 설정
+        xInput = Input.GetAxis("Horizontal"); // 수평 입력
     }
+    public void CreatePortal()
+    {
+        if (portalPrefab != null)
+        {
+            // 포탈 위치 설정
+            Vector3 portalPosition = transform.position + transform.up * 2; // 캐릭터 앞에 생성
+            GameObject portal = Instantiate(portalPrefab, portalPosition, Quaternion.identity);
+            portal.SetActive(true); // 포탈 활성화
+        }
+        else
+        {
+            Debug.LogError("Portal prefab is not assigned.");
+        }
+    }
+
 }

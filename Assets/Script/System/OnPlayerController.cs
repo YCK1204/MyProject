@@ -21,5 +21,9 @@ public class OnPlayerController : MonoBehaviour
         {
             movementController.Jump();
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            movementController.CreatePortal();
+        }
     }
 }
