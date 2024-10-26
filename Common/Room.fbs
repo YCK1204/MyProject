@@ -16,6 +16,7 @@ table S_CreateRoom
 table C_CreateRoom
 {
     room_id:int;
+    passowrd:string;
     member_count:int;
 }
 
@@ -29,20 +30,20 @@ enum EnterRoomError : ushort
 
 table S_EnterRoom
 {
-    ok:bool;
+    ok:EnterRoomError;
     id:int;
-    room_id:int;
-    pos:pos_info;
+    pos:PosInfo;
 }
 
 table C_EnterRoom
 {
     room_Id:int;
+    password:string;
 }
 
 table S_LeaveRoom
 {
-    room_Id:int;
+    id:int;
 }
 
 table C_LeaveRoom
@@ -53,9 +54,25 @@ table C_LeaveRoom
 table S_Spawn
 {
     id:int;
-    pos:pos_info;
+    pos:PosInfo;
 }
 
 table C_Spawn
+{
+}
+
+table RoomInfo
+{
+    roomId:int;
+    password:string;
+    memberCount:int;
+}
+
+table S_RoomList
+{
+    rooms:[RoomInfo];
+}
+
+table C_RoomList
 {
 }

@@ -13,7 +13,7 @@ enum ObjectType : ushort
     PLAYER,
 }
 
-table pos_info
+table PosInfo
 {
     dir:Dir;
     x:int;

@@ -5,8 +5,16 @@
 public enum PacketType : byte
 {
   NONE = 0,
-  S_Test = 1,
-  C_Test = 2,
+  S_Spawn = 1,
+  C_Spawn = 2,
+  S_LeaveRoom = 3,
+  C_LeaveRoom = 4,
+  S_EnterRoom = 5,
+  C_EnterRoom = 6,
+  S_CreateRoom = 7,
+  C_CreateRoom = 8,
+  S_RoomList = 9,
+  C_RoomList = 10,
 };
 
 
@@ -18,11 +26,35 @@ static public class PacketTypeVerify
     bool result = true;
     switch((PacketType)typeId)
     {
-      case PacketType.S_Test:
-        result = S_TestVerify.Verify(verifier, tablePos);
+      case PacketType.S_Spawn:
+        result = S_SpawnVerify.Verify(verifier, tablePos);
         break;
-      case PacketType.C_Test:
-        result = C_TestVerify.Verify(verifier, tablePos);
+      case PacketType.C_Spawn:
+        result = C_SpawnVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.S_LeaveRoom:
+        result = S_LeaveRoomVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.C_LeaveRoom:
+        result = C_LeaveRoomVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.S_EnterRoom:
+        result = S_EnterRoomVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.C_EnterRoom:
+        result = C_EnterRoomVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.S_CreateRoom:
+        result = S_CreateRoomVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.C_CreateRoom:
+        result = C_CreateRoomVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.S_RoomList:
+        result = S_RoomListVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.C_RoomList:
+        result = C_RoomListVerify.Verify(verifier, tablePos);
         break;
       default: result = true;
         break;

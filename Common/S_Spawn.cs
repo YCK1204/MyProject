@@ -17,11 +17,11 @@ public struct S_Spawn : IFlatbufferObject
   public S_Spawn __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public int Id { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public pos_info? Pos { get { int o = __p.__offset(6); return o != 0 ? (pos_info?)(new pos_info()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public PosInfo? Pos { get { int o = __p.__offset(6); return o != 0 ? (PosInfo?)(new PosInfo()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
 
   public static Offset<S_Spawn> CreateS_Spawn(FlatBufferBuilder builder,
       int id = 0,
-      Offset<pos_info> posOffset = default(Offset<pos_info>)) {
+      Offset<PosInfo> posOffset = default(Offset<PosInfo>)) {
     builder.StartTable(2);
     S_Spawn.AddPos(builder, posOffset);
     S_Spawn.AddId(builder, id);
@@ -30,7 +30,7 @@ public struct S_Spawn : IFlatbufferObject
 
   public static void StartS_Spawn(FlatBufferBuilder builder) { builder.StartTable(2); }
   public static void AddId(FlatBufferBuilder builder, int id) { builder.AddInt(0, id, 0); }
-  public static void AddPos(FlatBufferBuilder builder, Offset<pos_info> posOffset) { builder.AddOffset(1, posOffset.Value, 0); }
+  public static void AddPos(FlatBufferBuilder builder, Offset<PosInfo> posOffset) { builder.AddOffset(1, posOffset.Value, 0); }
   public static Offset<S_Spawn> EndS_Spawn(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<S_Spawn>(o);
@@ -44,7 +44,7 @@ static public class S_SpawnVerify
   {
     return verifier.VerifyTableStart(tablePos)
       && verifier.VerifyField(tablePos, 4 /*Id*/, 4 /*int*/, 4, false)
-      && verifier.VerifyTable(tablePos, 6 /*Pos*/, pos_infoVerify.Verify, false)
+      && verifier.VerifyTable(tablePos, 6 /*Pos*/, PosInfoVerify.Verify, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

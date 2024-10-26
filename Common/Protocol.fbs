@@ -9,4 +9,6 @@ union PacketType {  // 유니온 정의
     C_EnterRoom,
     S_CreateRoom,
     C_CreateRoom,
+    S_RoomList,
+    C_RoomList,
 }

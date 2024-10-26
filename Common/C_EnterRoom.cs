@@ -17,16 +17,26 @@ public struct C_EnterRoom : IFlatbufferObject
   public C_EnterRoom __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public int RoomId { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public string Password { get { int o = __p.__offset(6); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
+#if ENABLE_SPAN_T
+  public Span<byte> GetPasswordBytes() { return __p.__vector_as_span<byte>(6, 1); }
+#else
+  public ArraySegment<byte>? GetPasswordBytes() { return __p.__vector_as_arraysegment(6); }
+#endif
+  public byte[] GetPasswordArray() { return __p.__vector_as_array<byte>(6); }
 
   public static Offset<C_EnterRoom> CreateC_EnterRoom(FlatBufferBuilder builder,
-      int room_Id = 0) {
-    builder.StartTable(1);
+      int room_Id = 0,
+      StringOffset passwordOffset = default(StringOffset)) {
+    builder.StartTable(2);
+    C_EnterRoom.AddPassword(builder, passwordOffset);
     C_EnterRoom.AddRoomId(builder, room_Id);
     return C_EnterRoom.EndC_EnterRoom(builder);
   }
 
-  public static void StartC_EnterRoom(FlatBufferBuilder builder) { builder.StartTable(1); }
+  public static void StartC_EnterRoom(FlatBufferBuilder builder) { builder.StartTable(2); }
   public static void AddRoomId(FlatBufferBuilder builder, int roomId) { builder.AddInt(0, roomId, 0); }
+  public static void AddPassword(FlatBufferBuilder builder, StringOffset passwordOffset) { builder.AddOffset(1, passwordOffset.Value, 0); }
   public static Offset<C_EnterRoom> EndC_EnterRoom(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<C_EnterRoom>(o);
@@ -40,6 +50,7 @@ static public class C_EnterRoomVerify
   {
     return verifier.VerifyTableStart(tablePos)
       && verifier.VerifyField(tablePos, 4 /*RoomId*/, 4 /*int*/, 4, false)
+      && verifier.VerifyString(tablePos, 6 /*Password*/, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

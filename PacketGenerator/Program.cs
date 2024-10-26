@@ -40,10 +40,10 @@ namespace PacketGenerator
                             string packetType = line.Substring(0, 2);
                             switch (packetType)
                             {
-                                case "C_":
+                                case "S_":
                                     clientRegister += String.Format(PacketFormat.PMRegister, line) + "\n\t\t";
                                     break;
-                                case "S_":
+                                case "C_":
                                     serverRegister += String.Format(PacketFormat.PMRegister, line) + "\n\t\t";
                                     break;
                                 default:

@@ -10,16 +10,16 @@ public class ServerSession : PacketSession
     public Network network;
     public override void OnConnect(EndPoint endPoint)
     {
-        Debug.Log($"OnConnect");
-        string sendStr = "Send!!";
-        Debug.Log(sendStr);
-        FlatBufferBuilder builder = new FlatBufferBuilder(20);
-        var str = builder.CreateString(sendStr);
-        var s_test =  S_Test.CreateS_Test(builder, str);
-        builder.Finish(s_test.Value);
-        var data = builder.SizedByteArray();
-        var d = network.packet.CreatePacket(data, PacketType.S_Test);
-        Send(d);
+        FlatBufferBuilder builder = new FlatBufferBuilder(1024); // 후에 오브젝트 풀링으로 관리
+
+        int roomId = 100;
+        int memberCnt = 5;
+
+        var room = C_CreateRoom.CreateC_CreateRoom(builder, roomId, member_count:memberCnt);
+        builder.Finish(room.Value);
+        var bytes = builder.SizedByteArray();
+        var pkt = network.packet.CreatePacket(bytes, PacketType.C_CreateRoom);
+        Send(pkt);
     }
 
     public override void OnDisconnect(EndPoint endPoint)
@@ -31,7 +31,7 @@ public class ServerSession : PacketSession
     {
         GameObject go = GameObject.Find("Test");
         Network net = go.GetComponent<Network>();
-        net.Push(data);
+        net.Send(data);
     }
 
     public override void OnSend(int numOfBytes)
@@ -41,12 +41,18 @@ public class ServerSession : PacketSession
 }
 public class Network : MonoBehaviour
 {
+    static Network _instance = null;
+    public static Network NetworkManager
+    {
+        get { return _instance; }
+        set { _instance = value; }
+    }
     public PacketManager packet = new PacketManager();
     Connector _connector = new Connector();
     ServerSession session = new ServerSession();
     object _lock = new object();
     Queue<ArraySegment<byte>> _packetQueue = new Queue<ArraySegment<byte>>();
-    public void Push(ArraySegment<byte> data)
+    public void Send(ArraySegment<byte> data)
     {
         lock (_lock)
         {
@@ -56,6 +62,7 @@ public class Network : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _instance = this;
         session.network = this;
         IPEndPoint endPoint = new IPEndPoint(IPAddress.Loopback, 8080);
         _connector.Init(endPoint, () => { return session; });

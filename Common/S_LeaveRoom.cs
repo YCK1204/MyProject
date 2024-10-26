@@ -16,17 +16,17 @@ public struct S_LeaveRoom : IFlatbufferObject
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
   public S_LeaveRoom __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
-  public int RoomId { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public int Id { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
 
   public static Offset<S_LeaveRoom> CreateS_LeaveRoom(FlatBufferBuilder builder,
-      int room_Id = 0) {
+      int id = 0) {
     builder.StartTable(1);
-    S_LeaveRoom.AddRoomId(builder, room_Id);
+    S_LeaveRoom.AddId(builder, id);
     return S_LeaveRoom.EndS_LeaveRoom(builder);
   }
 
   public static void StartS_LeaveRoom(FlatBufferBuilder builder) { builder.StartTable(1); }
-  public static void AddRoomId(FlatBufferBuilder builder, int roomId) { builder.AddInt(0, roomId, 0); }
+  public static void AddId(FlatBufferBuilder builder, int id) { builder.AddInt(0, id, 0); }
   public static Offset<S_LeaveRoom> EndS_LeaveRoom(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<S_LeaveRoom>(o);
@@ -39,7 +39,7 @@ static public class S_LeaveRoomVerify
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {
     return verifier.VerifyTableStart(tablePos)
-      && verifier.VerifyField(tablePos, 4 /*RoomId*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 4 /*Id*/, 4 /*int*/, 4, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }
