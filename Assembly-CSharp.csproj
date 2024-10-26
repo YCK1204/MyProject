@@ -63,9 +63,11 @@
     <Compile Include="Assets\Script\System\InputSystem.cs" />
     <Compile Include="Assets\Throwhook.cs" />
     <Compile Include="Assets\Script\System\SceneTransition.cs" />
+    <Compile Include="Assets\Script\System\OnPlayerController.cs" />
     <Compile Include="Assets\Script\System\MovementController.cs" />
     <Compile Include="Assets\Script\ObjectPool\TileObjectPool.cs" />
     <Compile Include="Assets\RopeScript.cs" />
+    <Compile Include="Assets\Script\Portal\PortalController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

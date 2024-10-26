@@ -181,6 +181,8 @@ GameObject:
   - component: {fileID: 453076709}
   - component: {fileID: 453076710}
   - component: {fileID: 453076711}
+  - component: {fileID: 453076712}
+  - component: {fileID: 453076713}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -200,9 +202,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42aa867a32cb944ab62621430a40de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   anim: {fileID: 1151174737}
+  xInput: 0
   moveSpeed: 3
   jumpForce: 7
+  isGrounded: 0
   groundCheckDistance: 0.21
   whatIsGround:
     serializedVersion: 2
@@ -299,6 +304,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hook: {fileID: 5782415443109099512, guid: ba64cbf4e6b678246b1c59c981034fd7, type: 3}
   ropeActive: 0
+--- !u!114 &453076712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453076705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9572ec010c8d5409f36f0147e29237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementController: {fileID: 0}
+--- !u!114 &453076713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453076705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadc918acbe171b4b8483f38d978028a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portalPrefab: {fileID: 5005858284771089721, guid: 951c7ca38d2ec074c87c748b1ba230cb, type: 3}
+  portalDuration: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
