@@ -13,10 +13,9 @@ namespace Server.Game
         int _id = 0;
         public Room Generate()
         {
-            Room room;
+            Room room = new Room();
             lock (_lock)
             {
-                room = new Room();
                 room.ID = ++_id;
                 _rooms.Add(room.ID, room);
             }

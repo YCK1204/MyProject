@@ -21,10 +21,9 @@ namespace Server.Session
         }
         public ClientSession Generate()
         {
-            ClientSession session;
+            ClientSession session = new ClientSession();
             lock (_lock)
             {
-                session = new ClientSession();
                 session.ID = ++_id;
                 _sessions.Add(_id, session);
             }

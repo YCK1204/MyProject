@@ -1,18 +1,12 @@
-// Protocol.fbs
+include "Room.fbs";
 
 union PacketType {  // 유니온 정의
-    S_Test,
-    C_Test,
+    S_Spawn,
+    C_Spawn,
+    S_LeaveRoom,
+    C_LeaveRoom,
+    S_EnterRoom,
+    C_EnterRoom,
+    S_CreateRoom,
+    C_CreateRoom,
 }
-
-table S_Test
-{
-    test:string;
-}
-
-table C_Test
-{
-    test:string;
-}
-
-root_type S_Test;
