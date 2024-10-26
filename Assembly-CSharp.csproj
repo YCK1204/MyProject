@@ -62,11 +62,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\rope\RopeScript.cs" />
+    <Compile Include="Assets\Item\Saw\Enemy_Saw.cs" />
     <Compile Include="Assets\Script\ObjectPool\PoolManager.cs" />
     <Compile Include="Assets\Script\System\OnPlayerController.cs" />
     <Compile Include="Assets\Script\System\MovementController.cs" />
     <Compile Include="Assets\GameManager.cs" />
+    <Compile Include="Assets\Item\Gate\Gate.cs" />
     <Compile Include="Assets\Script\Portal\Portal.cs" />
+    <Compile Include="Assets\Item\Traps\Enemy_WoodTraps.cs" />
     <Compile Include="Assets\Script\System\SceneTransition.cs" />
     <Compile Include="Assets\Script\rope\Throwhook.cs" />
   </ItemGroup>
