@@ -12,8 +12,8 @@ public class OnPlayerController : MonoBehaviour
     }
 
     void Update()
-    {
-        // Input 贸府
+    { 
+        // Input 贸府 老馆 敲饭捞绢 /
         float xInput = Input.GetAxisRaw("Horizontal");
         movementController.SetInput(xInput);
 

@@ -37,10 +37,10 @@ public class MovementController : MonoBehaviour
 
     private void AnimatorController()
     {
-        bool isMoving = rb.velocity.x != 0;
+        bool isMoving = rb.linearVelocity.x != 0;
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGrounded);
-        anim.SetFloat("yVelocity", rb.velocity.y);
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);
     }
 
     private void Flip()
@@ -52,11 +52,11 @@ public class MovementController : MonoBehaviour
 
     private void FlipController()
     {
-        if (rb.velocity.x > 0 && !facingRight)
+        if (rb.linearVelocity.x > 0 && !facingRight)
         {
             Flip();
         }
-        else if (rb.velocity.x < 0 && facingRight)
+        else if (rb.linearVelocity.x < 0 && facingRight)
         {
             Flip();
         }
@@ -74,7 +74,7 @@ public class MovementController : MonoBehaviour
 
     private void Movement()
     {
-        rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(xInput * moveSpeed, rb.linearVelocity.y);
     }
 
     public void SetInput(float input)
@@ -86,13 +86,13 @@ public class MovementController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
 
-    private void CheckInput() // ÀÔ·ÂÀ» Ã³¸®ÇÏ´Â ¸Þ¼­µå Ãß°¡
+    private void CheckInput() // ï¿½Ô·ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
     {
-        // ÀÌ ¸Þ¼­µå´Â ¿©±â¼­ »ç¿ëÇÏÁö ¾ÊÁö¸¸, OnPlayerController¿¡¼­ Ã³¸®
-        // xInputÀ» Á÷Á¢ ¼³Á¤ÇÏ´Â ¸Þ¼­µå¸¦ OnPlayerController¿¡¼­ È£Ãâ
+        // ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, OnPlayerControllerï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+        // xInputï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½å¸¦ OnPlayerControllerï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½
     }
 }
