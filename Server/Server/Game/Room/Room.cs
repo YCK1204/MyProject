@@ -24,6 +24,8 @@ namespace Server.Game.Room
             {
                 if (CurMemberCount >= MemberCount)
                     return false;
+                if (_players.ContainsKey(player.ID))
+                    return false;
                 CurMemberCount++;
                 _players.Add(player.ID, player);
             }
@@ -50,6 +52,16 @@ namespace Server.Game.Room
         public Player FindUser(Player player)
         {
             return FindUser(player.ID);
+        }
+        public void Broadcast(byte[] packet)
+        {
+            lock (_lock)
+            {
+                foreach (Player player in _players.Values)
+                {
+                    player.Session.Send(packet);
+                }
+            }
         }
     }
 }

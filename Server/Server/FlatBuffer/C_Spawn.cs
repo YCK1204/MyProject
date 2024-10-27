@@ -16,8 +16,17 @@ public struct C_Spawn : IFlatbufferObject
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
   public C_Spawn __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
+  public PosInfo? Pos { get { int o = __p.__offset(4); return o != 0 ? (PosInfo?)(new PosInfo()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
 
-  public static void StartC_Spawn(FlatBufferBuilder builder) { builder.StartTable(0); }
+  public static Offset<C_Spawn> CreateC_Spawn(FlatBufferBuilder builder,
+      Offset<PosInfo> posOffset = default(Offset<PosInfo>)) {
+    builder.StartTable(1);
+    C_Spawn.AddPos(builder, posOffset);
+    return C_Spawn.EndC_Spawn(builder);
+  }
+
+  public static void StartC_Spawn(FlatBufferBuilder builder) { builder.StartTable(1); }
+  public static void AddPos(FlatBufferBuilder builder, Offset<PosInfo> posOffset) { builder.AddOffset(0, posOffset.Value, 0); }
   public static Offset<C_Spawn> EndC_Spawn(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<C_Spawn>(o);
@@ -30,6 +39,7 @@ static public class C_SpawnVerify
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {
     return verifier.VerifyTableStart(tablePos)
+      && verifier.VerifyTable(tablePos, 4 /*Pos*/, PosInfoVerify.Verify, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

@@ -40,7 +40,7 @@ public class PacketManager
         if (_handler.TryGetValue(id, out action))
         {{
             byte[] data = new byte[size - count];
-            Array.Copy(buffer.Array, count, data, 0, size - count);
+            Array.Copy(buffer.Array, buffer.Offset + count, data, 0, size - count);
             ByteBuffer bb = new ByteBuffer(data);
             action.Invoke(session, bb);
         }}

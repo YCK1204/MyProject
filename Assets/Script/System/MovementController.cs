@@ -4,43 +4,62 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public Animator anim;
 
     [Header("MoveJump")]
-    private float xInput;
-    
+    public float xInput;
+
     private int facingDir = 1;
     private bool facingRight = true;
-
 
     [SerializeField] public float moveSpeed;
     [SerializeField] public float jumpForce;
 
-
     [Header("Collision check")]
-    private bool isGrounded;
-    [SerializeField] private float groundCheckDistance;
-    [SerializeField] private LayerMask whatIsGround;
-   
-    
-    // Start is called before the first frame update
+    public bool isGrounded;
+    [SerializeField] public float groundCheckDistance;
+    [SerializeField] public LayerMask whatIsGround;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        Movement();
-        CheckInput();
+        CheckInput(); 
         CollisionChecks();
-
         FlipController();
         AnimatorController();
+    }
+
+    private void AnimatorController()
+    {
+        bool isMoving = rb.linearVelocity.x != 0;
+        anim.SetBool("isMoving", isMoving);
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);
+    }
+
+    private void Flip()
+    {
+        facingDir *= -1;
+        facingRight = !facingRight;
+        transform.Rotate(0, 180, 0);
+    }
+
+    private void FlipController()
+    {
+        if (rb.linearVelocity.x > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (rb.linearVelocity.x < 0 && facingRight)
+        {
+            Flip();
+        }
     }
 
     private void CollisionChecks()
@@ -48,66 +67,32 @@ public class MovementController : MonoBehaviour
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
     }
 
-    private void CheckInput()
+    private void FixedUpdate()
     {
-        xInput = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
+        Movement();
     }
 
     private void Movement()
     {
-        rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(xInput * moveSpeed, rb.linearVelocity.y);
     }
 
-    private void Jump()
+    public void SetInput(float input)
+    {
+        xInput = input;
+    }
+
+    public void Jump()
     {
         if (isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
 
-    private void AnimatorController()
+    private void CheckInput() // �Է��� ó���ϴ� �޼��� �߰�
     {
-       bool isMoving = rb.velocity.x != 0;
-        anim.SetBool("isMoving", isMoving);
-        anim.SetBool("isGrounded", isGrounded);
-        anim.SetFloat("yVelocity", rb.velocity.y);
+        // �� �޼���� ���⼭ ������� ������, OnPlayerController���� ó��
+        // xInput�� ���� �����ϴ� �޼��带 OnPlayerController���� ȣ��
     }
-
-
-
-    private void Flip()
-    {
-        facingDir = facingDir * -1;
-        facingRight = !facingRight;
-        transform.Rotate(0, 180, 0);
-        
-    }
-    private void FlipController()
-    {
-        if(rb.velocity.x > 0 && !facingRight)
-        {
-            Flip();
-        }
-        else if (rb.velocity.x < 0 && facingRight)
-        {
-            Flip();
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - groundCheckDistance));
-    }
-    private void FixedUpdate()
-    {
-        
-      
-    }
-  
 }

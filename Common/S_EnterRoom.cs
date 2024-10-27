@@ -17,24 +17,16 @@ public struct S_EnterRoom : IFlatbufferObject
   public S_EnterRoom __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public EnterRoomError Ok { get { int o = __p.__offset(4); return o != 0 ? (EnterRoomError)__p.bb.GetUshort(o + __p.bb_pos) : EnterRoomError.SUCCESS; } }
-  public int Id { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public PosInfo? Pos { get { int o = __p.__offset(8); return o != 0 ? (PosInfo?)(new PosInfo()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
 
   public static Offset<S_EnterRoom> CreateS_EnterRoom(FlatBufferBuilder builder,
-      EnterRoomError ok = EnterRoomError.SUCCESS,
-      int id = 0,
-      Offset<PosInfo> posOffset = default(Offset<PosInfo>)) {
-    builder.StartTable(3);
-    S_EnterRoom.AddPos(builder, posOffset);
-    S_EnterRoom.AddId(builder, id);
+      EnterRoomError ok = EnterRoomError.SUCCESS) {
+    builder.StartTable(1);
     S_EnterRoom.AddOk(builder, ok);
     return S_EnterRoom.EndS_EnterRoom(builder);
   }
 
-  public static void StartS_EnterRoom(FlatBufferBuilder builder) { builder.StartTable(3); }
+  public static void StartS_EnterRoom(FlatBufferBuilder builder) { builder.StartTable(1); }
   public static void AddOk(FlatBufferBuilder builder, EnterRoomError ok) { builder.AddUshort(0, (ushort)ok, 0); }
-  public static void AddId(FlatBufferBuilder builder, int id) { builder.AddInt(1, id, 0); }
-  public static void AddPos(FlatBufferBuilder builder, Offset<PosInfo> posOffset) { builder.AddOffset(2, posOffset.Value, 0); }
   public static Offset<S_EnterRoom> EndS_EnterRoom(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<S_EnterRoom>(o);
@@ -48,8 +40,6 @@ static public class S_EnterRoomVerify
   {
     return verifier.VerifyTableStart(tablePos)
       && verifier.VerifyField(tablePos, 4 /*Ok*/, 2 /*EnterRoomError*/, 2, false)
-      && verifier.VerifyField(tablePos, 6 /*Id*/, 4 /*int*/, 4, false)
-      && verifier.VerifyTable(tablePos, 8 /*Pos*/, PosInfoVerify.Verify, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

@@ -4,29 +4,65 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.LightTransport;
 
 public class PacketHandler
 {
     public static void S_SpawnHandler(PacketSession session, ByteBuffer buffer)
     {
         ServerSession serverSession = session as ServerSession;
+        S_Spawn packet = S_Spawn.GetRootAsS_Spawn(buffer);
+
+        PosInfo posInfo = packet.Pos.Value;
+        Debug.Log($"S_SpawnHandler dir {posInfo.Dir}");
     }
     public static void S_LeaveRoomHandler(PacketSession session, ByteBuffer buffer)
     {
         ServerSession serverSession = session as ServerSession;
     }
+    static void RequestSpawn(ServerSession session)
+    {
+        FlatBufferBuilder builder = new FlatBufferBuilder(1);
+        var posInfo = PosInfo.CreatePosInfo(builder, Dir.DOWN, 10, 10);
+        var data = C_Spawn.CreateC_Spawn(builder, posInfo);
+        builder.Finish(data.Value);
+        var bytes = builder.SizedByteArray();
+
+        var pkt = Network.NetworkManager.packet.CreatePacket(bytes, PacketType.C_Spawn);
+
+        session.Send(pkt);
+    }
     public static void S_EnterRoomHandler(PacketSession session, ByteBuffer buffer)
     {
         ServerSession serverSession = session as ServerSession;
+
+        S_EnterRoom packet = S_EnterRoom.GetRootAsS_EnterRoom(buffer);
+        EnterRoomError result = packet.Ok;
+
+        switch (result)
+        {
+            case EnterRoomError.SUCCESS:
+                RequestSpawn(serverSession);
+                break;
+            case EnterRoomError.FULL:
+                break;
+            case EnterRoomError.NOT_FOUND:
+                break;
+            case EnterRoomError.UNKNOWN:
+                break;
+        }
     }
     static void EnterRoom(ServerSession session)
     {
-        FlatBufferBuilder builder = new FlatBufferBuilder(1024);
-
+        FlatBufferBuilder builder = new FlatBufferBuilder(1);
         var data = C_EnterRoom.CreateC_EnterRoom(builder, 100);
         builder.Finish(data.Value);
-        var bytes = builder.SizedByteArray();
-        var pkt = Network.NetworkManager.packet.CreatePacket(bytes, PacketType.C_EnterRoom);
+        var ddd = builder.SizedByteArray();
+        var bb = new ByteBuffer(ddd);
+        C_EnterRoom c = C_EnterRoom.GetRootAsC_EnterRoom(bb);
+        var dd = builder.DataBuffer.ToArray(0, builder.DataBuffer.Length);
+        var pkt = Network.NetworkManager.packet.CreatePacket(ddd, PacketType.C_EnterRoom);
+
         session.Send(pkt);
     }
     public static void S_CreateRoomHandler(PacketSession session, ByteBuffer buffer)
@@ -52,8 +88,7 @@ public class PacketHandler
         }
     }
 
-    internal static void S_RoomListHandler(PacketSession session, ByteBuffer buffer)
+    public static void S_RoomListHandler(PacketSession session, ByteBuffer buffer)
     {
-        throw new NotImplementedException();
     }
 }

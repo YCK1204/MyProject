@@ -49,12 +49,13 @@ namespace Server.Session
             // SessionMAnager에서 처리 추가 필요
 
             Console.WriteLine($"OnDisconnect");
+            if (MyPlayer.Room != null)
+                MyPlayer.Room.Leave(MyPlayer);
         }
         public override void OnRecvPacket(ArraySegment<byte> data)
         {
             Manager.Packet.OnRecvPacket(this, data);
         }
-
         public override void OnSend(int numOfBytes)
         {
             Console.WriteLine($"OnSend");

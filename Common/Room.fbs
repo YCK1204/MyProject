@@ -31,8 +31,6 @@ enum EnterRoomError : ushort
 table S_EnterRoom
 {
     ok:EnterRoomError;
-    id:int;
-    pos:PosInfo;
 }
 
 table C_EnterRoom
@@ -59,6 +57,7 @@ table S_Spawn
 
 table C_Spawn
 {
+    pos:PosInfo;
 }
 
 table RoomInfo

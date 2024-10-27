@@ -42,8 +42,8 @@ namespace ServerCore
             else
             {
                 Console.WriteLine($"OnAcceptCompleted Failed");
-                RegisterAccept(args);
             }
+            RegisterAccept(args);
         }
     }
 }
