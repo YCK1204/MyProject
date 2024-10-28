@@ -3,39 +3,35 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-
-
-
-
-    public string poolName; // 풀의 이름
-    public int initialSize; // 초기 풀 크기
-
     public GameObject[] prefabs; // 관리할 프리팹
-    public List<GameObject>[] pools;
-    // 실제 오브젝트 리스트
+    private List<GameObject>[] pools; // 실제 오브젝트 리스트
 
-
-
-
-    private void Start()
+    private void Awake()
     {
-        AddI();
-       
+        InitializePools(); // 풀 초기화
     }
 
     // 풀 초기화 메서드
-    private void AddI()
+    private void InitializePools()
     {
-
         pools = new List<GameObject>[prefabs.Length];
-        for (int index = 0; index < pools.Length; index++)
-            pools[index] = new List<GameObject>();
+
+        for (int i = 0; i < prefabs.Length; i++)
+        {
+            pools[i] = new List<GameObject>(); // 빈 리스트 초기화
+        }
     }
 
+    // 오브젝트 요청 메서드
     public GameObject Get(int index)
     {
-        GameObject select = null;
+        if (index < 0 || index >= pools.Length)
+        {
+            Debug.LogError("Index " + index + " is out of bounds.");
+            return null;
+        }
 
+        GameObject select = null;
         foreach (GameObject item in pools[index])
         {
             if (!item.activeSelf)
@@ -45,6 +41,7 @@ public class PoolManager : MonoBehaviour
                 break;
             }
         }
+
         if (!select)
         {
             select = Instantiate(prefabs[index], transform);
@@ -54,6 +51,3 @@ public class PoolManager : MonoBehaviour
     }
 }
 
-
-       
-    
