@@ -23,12 +23,9 @@ public class PacketHandler
     static void RequestSpawn(ServerSession session)
     {
         FlatBufferBuilder builder = new FlatBufferBuilder(1);
-        var posInfo = PosInfo.CreatePosInfo(builder, Dir.DOWN, 10, 10);
+        var posInfo = PosInfo.CreatePosInfo(builder, Dir.DOWN, -7, 3);
         var data = C_Spawn.CreateC_Spawn(builder, posInfo);
-        builder.Finish(data.Value);
-        var bytes = builder.SizedByteArray();
-
-        var pkt = Network.NetworkManager.packet.CreatePacket(bytes, PacketType.C_Spawn);
+        var pkt = GameManager.Packet.CreatePacket(data, builder, PacketType.C_Spawn);
 
         session.Send(pkt);
     }
@@ -56,12 +53,7 @@ public class PacketHandler
     {
         FlatBufferBuilder builder = new FlatBufferBuilder(1);
         var data = C_EnterRoom.CreateC_EnterRoom(builder, 100);
-        builder.Finish(data.Value);
-        var ddd = builder.SizedByteArray();
-        var bb = new ByteBuffer(ddd);
-        C_EnterRoom c = C_EnterRoom.GetRootAsC_EnterRoom(bb);
-        var dd = builder.DataBuffer.ToArray(0, builder.DataBuffer.Length);
-        var pkt = Network.NetworkManager.packet.CreatePacket(ddd, PacketType.C_EnterRoom);
+        var pkt = GameManager.Packet.CreatePacket(data, builder, PacketType.C_EnterRoom);
 
         session.Send(pkt);
     }
@@ -81,6 +73,9 @@ public class PacketHandler
                 break;
             case CreateRoomError.INVALID_ID:
                 Debug.Log($"방 생성 실패 : 정상적이지 않은 방번호로 생성 시도");
+                break;
+            case CreateRoomError.INVALID_GAME_LEVEL:
+                Debug.Log($"방 생성 실패 : 정상적이지 않은 게임 난이도로 생성 시도");
                 break;
             case CreateRoomError.UNKNOWN:
                 Debug.Log($"방 생성 실패 : 이유 알 수 없음");

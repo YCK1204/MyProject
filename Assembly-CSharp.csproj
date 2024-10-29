@@ -74,24 +74,25 @@
     <Compile Include="Assets\Script\Utils\MapEditor.cs" />
     <Compile Include="Assets\Script\FlatBuffer\C_Spawn.cs" />
     <Compile Include="Assets\Script\System\MovementController.cs" />
-    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Item\Gate\Gate.cs" />
     <Compile Include="Assets\Script\Portal\Portal.cs" />
     <Compile Include="Assets\Script\FlatBuffer\C_LeaveRoom.cs" />
     <Compile Include="Assets\Script\FlatBuffer\ObjectType.cs" />
     <Compile Include="Assets\Script\FlatBuffer\PacketType.cs" />
+    <Compile Include="Assets\Script\Managers\GameManager.cs" />
     <Compile Include="Assets\Script\FlatBuffer\PosInfo.cs" />
     <Compile Include="Assets\Item\Traps\Enemy_WoodTraps.cs" />
     <Compile Include="Assets\Script\System\SceneTransition.cs" />
     <Compile Include="Assets\Script\FlatBuffer\S_CreateRoom.cs" />
     <Compile Include="Assets\Script\FlatBuffer\C_RoomList.cs" />
+    <Compile Include="Assets\Script\Managers\NetworkManager.cs" />
     <Compile Include="Assets\Script\FlatBuffer\S_Spawn.cs" />
     <Compile Include="Assets\Script\FlatBuffer\RoomInfo.cs" />
-    <Compile Include="Assets\Script\Utils\Network.cs" />
     <Compile Include="Assets\Script\Packet\PacketHandler.cs" />
     <Compile Include="Assets\Script\FlatBuffer\C_CreateRoom.cs" />
     <Compile Include="Assets\Script\FlatBuffer\CreateRoomError.cs" />
     <Compile Include="Assets\Script\FlatBuffer\S_EnterRoom.cs" />
+    <Compile Include="Assets\Script\Utils\ServerSession.cs" />
     <Compile Include="Assets\Script\FlatBuffer\S_LeaveRoom.cs" />
     <Compile Include="Assets\Script\rope\Throwhook.cs" />
   </ItemGroup>

@@ -46,15 +46,17 @@ public class PacketManager
         }}
     }}
     ushort PacketHederSize = 4;
-    public byte[] CreatePacket(byte[] data, PacketType id)
+    public byte[] CreatePacket<T>(Offset<T> data, FlatBufferBuilder builder, PacketType id) where T : struct
     {{
-        ushort size = (ushort)(data.Length + PacketHederSize);
+        builder.Finish(data.Value);
+        var bytes = builder.SizedByteArray();
+        ushort size = (ushort)(bytes.Length + PacketHederSize);
         ArraySegment<byte> segment = new ArraySegment<byte>(new byte[size]);
 
         bool success = true;
         success &= BitConverter.TryWriteBytes(new Span<byte>(segment.Array, 0, 2), size);
         success &= BitConverter.TryWriteBytes(new Span<byte>(segment.Array, 2, 4), (ushort)id);
-        Buffer.BlockCopy(data, 0, segment.Array, 4, data.Length);
+        Buffer.BlockCopy(bytes, 0, segment.Array, 4, bytes.Length);
 
         if (success == false)
             return null;

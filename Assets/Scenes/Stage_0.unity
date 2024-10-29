@@ -411,6 +411,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8476806945884376695, guid: e7eb7e1340bf10041830397cd1bd5f82, type: 3}
   m_PrefabInstance: {fileID: 1144571998}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &894097058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -521,6 +522,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 1.59375, z: 0.2}
   m_Center: {x: 0, y: 0.921875, z: 0}
+=======
+>>>>>>> d18961e2ead3fe220637f20e76b8346bf3cf8b75
 --- !u!1 &1020576603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1513,7 @@ SceneRoots:
   - {fileID: 7039683096696719621}
   - {fileID: 1983380197}
   - {fileID: 1144571998}
+<<<<<<< HEAD
   - {fileID: 1109732439}
   - {fileID: 87227054}
   - {fileID: 239984334}
@@ -1517,3 +1521,5 @@ SceneRoots:
   - {fileID: 894097058}
   - {fileID: 1917507027}
   - {fileID: 2065758714}
+=======
+>>>>>>> d18961e2ead3fe220637f20e76b8346bf3cf8b75

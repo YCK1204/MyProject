@@ -36,7 +36,7 @@ namespace Server.Game.Room
 
         bool[,] _conllision;
 
-        public void LoadMap(int id, string pathPrefix = "../../../../Common/Map")
+        public void LoadMap(int id, string pathPrefix = "../../../../../Common/Map")
         {
             string mapName = $"Map_{id.ToString("000")}";
             if (File.Exists($"{pathPrefix}/{mapName}") == false)
@@ -50,8 +50,8 @@ namespace Server.Game.Room
                 yMin = int.Parse(sr.ReadLine());
                 yMax = int.Parse(sr.ReadLine());
 
-                int xCount = xMax - xMin;
-                int yCount = yMin - yMax;
+                int xCount = xMax - xMin + 1;
+                int yCount = yMax - yMin + 1;
                 _conllision = new bool[yCount, xCount];
                 for (int y = 0; y < yCount; y++)
                 {
@@ -68,7 +68,7 @@ namespace Server.Game.Room
         }
         public Vector2 CellToPos(Vector2 cellPos)
         {
-            return new Vector2(cellPos.x + xMin, cellPos.y + yMax);
+            return new Vector2(cellPos.x + xMin, yMax - cellPos.y);
         }
         public Vector2 PosToCell(Vector2 pos)
         {
