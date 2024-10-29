@@ -11,13 +11,21 @@ namespace Server.Game.Room
     public class GameRoom
     {
         public int ID { get; set; }
-        public int MapId { get; set; }
-        Map map;
+        Map _map = new Map();
         public string Password { get; set; }
         public int MemberCount { get; set; }
         public int CurMemberCount { get; set; } = 0;
         object _lock = new object();
         Dictionary<int, Player> _players = new Dictionary<int, Player>();
+        int _mapId = 0;
+        public void Init(int gameLevel, int id, int memberCount, string password)
+        {
+            ID = id;
+            Password = password;
+            MemberCount = memberCount;
+            _mapId = gameLevel;
+            _map.LoadMap(_mapId);
+        }
         public bool Enter(Player player)
         {
             lock (_lock)
@@ -62,6 +70,16 @@ namespace Server.Game.Room
                     player.Session.Send(packet);
                 }
             }
+        }
+        public void HandleSpawn(C_Spawn packet, ClientSession session)
+        {
+            PosInfo posInfo = packet.Pos.Value;
+            Vector2 posVec2 = new Vector2(posInfo.X, posInfo.Y);
+            Vector2 cellPos =  _map.PosToCell(posVec2);
+            Console.WriteLine($"cellpos x : {cellPos.x}, y : {cellPos.y}");
+            Vector2 originalPos = _map.CellToPos(cellPos);
+            Console.WriteLine($"original x : {originalPos.x}, y : {originalPos.y}");
+
         }
     }
 }

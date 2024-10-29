@@ -7,6 +7,7 @@ public enum CreateRoomError : ushort
   SUCCESS = 0,
   OVERLAPPED = 1,
   INVALID_ID = 2,
-  UNKNOWN = 3,
+  INVALID_GAME_LEVEL = 3,
+  UNKNOWN = 4,
 };
 

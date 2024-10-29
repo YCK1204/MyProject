@@ -5,6 +5,7 @@ enum CreateRoomError : ushort
     SUCCESS,
     OVERLAPPED,
     INVALID_ID,
+    INVALID_GAME_LEVEL,
     UNKNOWN,
 }
 
@@ -16,6 +17,7 @@ table S_CreateRoom
 table C_CreateRoom
 {
     room_id:int;
+    game_level:int;
     passowrd:string;
     member_count:int;
 }
@@ -63,6 +65,7 @@ table C_Spawn
 table RoomInfo
 {
     roomId:int;
+    level:int;
     password:string;
     memberCount:int;
 }

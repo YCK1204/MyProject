@@ -17,30 +17,34 @@ public struct C_CreateRoom : IFlatbufferObject
   public C_CreateRoom __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public int RoomId { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public string Passowrd { get { int o = __p.__offset(6); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
+  public int GameLevel { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public string Passowrd { get { int o = __p.__offset(8); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
 #if ENABLE_SPAN_T
-  public Span<byte> GetPassowrdBytes() { return __p.__vector_as_span<byte>(6, 1); }
+  public Span<byte> GetPassowrdBytes() { return __p.__vector_as_span<byte>(8, 1); }
 #else
-  public ArraySegment<byte>? GetPassowrdBytes() { return __p.__vector_as_arraysegment(6); }
+  public ArraySegment<byte>? GetPassowrdBytes() { return __p.__vector_as_arraysegment(8); }
 #endif
-  public byte[] GetPassowrdArray() { return __p.__vector_as_array<byte>(6); }
-  public int MemberCount { get { int o = __p.__offset(8); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public byte[] GetPassowrdArray() { return __p.__vector_as_array<byte>(8); }
+  public int MemberCount { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
 
   public static Offset<C_CreateRoom> CreateC_CreateRoom(FlatBufferBuilder builder,
       int room_id = 0,
+      int game_level = 0,
       StringOffset passowrdOffset = default(StringOffset),
       int member_count = 0) {
-    builder.StartTable(3);
+    builder.StartTable(4);
     C_CreateRoom.AddMemberCount(builder, member_count);
     C_CreateRoom.AddPassowrd(builder, passowrdOffset);
+    C_CreateRoom.AddGameLevel(builder, game_level);
     C_CreateRoom.AddRoomId(builder, room_id);
     return C_CreateRoom.EndC_CreateRoom(builder);
   }
 
-  public static void StartC_CreateRoom(FlatBufferBuilder builder) { builder.StartTable(3); }
+  public static void StartC_CreateRoom(FlatBufferBuilder builder) { builder.StartTable(4); }
   public static void AddRoomId(FlatBufferBuilder builder, int roomId) { builder.AddInt(0, roomId, 0); }
-  public static void AddPassowrd(FlatBufferBuilder builder, StringOffset passowrdOffset) { builder.AddOffset(1, passowrdOffset.Value, 0); }
-  public static void AddMemberCount(FlatBufferBuilder builder, int memberCount) { builder.AddInt(2, memberCount, 0); }
+  public static void AddGameLevel(FlatBufferBuilder builder, int gameLevel) { builder.AddInt(1, gameLevel, 0); }
+  public static void AddPassowrd(FlatBufferBuilder builder, StringOffset passowrdOffset) { builder.AddOffset(2, passowrdOffset.Value, 0); }
+  public static void AddMemberCount(FlatBufferBuilder builder, int memberCount) { builder.AddInt(3, memberCount, 0); }
   public static Offset<C_CreateRoom> EndC_CreateRoom(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<C_CreateRoom>(o);
@@ -54,8 +58,9 @@ static public class C_CreateRoomVerify
   {
     return verifier.VerifyTableStart(tablePos)
       && verifier.VerifyField(tablePos, 4 /*RoomId*/, 4 /*int*/, 4, false)
-      && verifier.VerifyString(tablePos, 6 /*Passowrd*/, false)
-      && verifier.VerifyField(tablePos, 8 /*MemberCount*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 6 /*GameLevel*/, 4 /*int*/, 4, false)
+      && verifier.VerifyString(tablePos, 8 /*Passowrd*/, false)
+      && verifier.VerifyField(tablePos, 10 /*MemberCount*/, 4 /*int*/, 4, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }
