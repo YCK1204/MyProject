@@ -1,29 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OnPlayerController : MonoBehaviour
 {
-    public MovementController movementController;
+    private MovementController movementController;
 
     void Start()
     {
+        // MovementController 컴포넌트를 가져옵니다.
         movementController = GetComponent<MovementController>();
     }
 
     void Update()
-    { 
-        // Input 처리 일반 플레이어 /
-        float xInput = Input.GetAxisRaw("Horizontal");
-        movementController.SetInput(xInput);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            movementController.Jump();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            movementController.CreatePortal();
-        }
+    {
+        // MovementController에 입력 처리를 위임
+        movementController.ProcessInput();
     }
 }
+

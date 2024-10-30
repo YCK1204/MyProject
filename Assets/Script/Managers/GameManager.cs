@@ -1,46 +1,68 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public interface IManager
 {
-    void Init();
-    void Clear();
+    void Init();   // 초기화 메서드
+    void Clear();  // 리소스 정리 메서드
 }
 
 public class GameManager : MonoBehaviour
 {
-    #region Singleton
-    public OnPlayerController player;
+    #region Singleton Pattern
     public static GameManager Instance;
-    public PoolManager pool;
-    NetworkManager _network = new NetworkManager();
-    PacketManager _packet = new PacketManager();
+    #endregion
+
+    #region Dependencies
+    public OnPlayerController playerController; // 플레이어 컨트롤러
+    public PoolManager pool;                    // 풀링 매니저
+    private NetworkManager _network = new NetworkManager(); // 네트워크 매니저
+    private PacketManager _packet = new PacketManager();    // 패킷 매니저
     public static NetworkManager Network { get { return Instance._network; } }
     public static PacketManager Packet { get { return Instance._packet; } }
     #endregion
+
     private void Awake()
     {
-        Instance = this;
-        pool = GetComponent<PoolManager>();
+        // 싱글턴 인스턴스 설정
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // GameManager가 씬 전환 시에도 유지되도록 설정
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        pool = GetComponent<PoolManager>(); // PoolManager 컴포넌트 할당
+
+        // 게임 초기화 메서드 호출
         InitializeGame();
+
+        // 네트워크 매니저 초기화
         Network.Init();
     }
 
-
     private void InitializeGame()
     {
-        // 초기 설정 예: 플레이어 설정, 게임 상태 초기화 등
-        if (player != null)
+        // 초기화 단계 예시
+        if (playerController != null)
         {
-            //player.Initialize(); // 플레이어 초기화 메서드 호출 (필요하다면)
+            // playerController.Initialize(); // 필요 시 플레이어 초기화 메서드 호출
         }
-        // 추가적인 초기화 로직
+        // 추가적인 게임 초기화 로직 구현 가능
     }
-    void Update()
+
+    private void Update()
     {
         Network.Update();
     }
-}
 
+    // 씬을 로드하는 메서드 추가
+    public void LoadScene(string sceneName)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+    }
+}

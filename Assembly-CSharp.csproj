@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Managers\ref\CollisionChecker.cs" />
     <Compile Include="Assets\Script\rope\RopeScript.cs" />
     <Compile Include="Assets\Item\Saw\Enemy_Saw.cs" />
     <Compile Include="Assets\Script\ObjectPool\PoolManager.cs" />
@@ -73,12 +74,15 @@
     <Compile Include="Assets\Script\Packet\PacketManager.cs" />
     <Compile Include="Assets\Script\Utils\MapEditor.cs" />
     <Compile Include="Assets\Script\FlatBuffer\C_Spawn.cs" />
-    <Compile Include="Assets\Script\System\MovementController.cs" />
+    <Compile Include="Assets\Script\Managers\interface\IPlayerController.cs" />
     <Compile Include="Assets\Item\Gate\Gate.cs" />
     <Compile Include="Assets\Script\Portal\Portal.cs" />
+    <Compile Include="Assets\Script\Managers\SceneManager.cs" />
     <Compile Include="Assets\Script\FlatBuffer\C_LeaveRoom.cs" />
     <Compile Include="Assets\Script\FlatBuffer\ObjectType.cs" />
+    <Compile Include="Assets\Script\Managers\UiManager.cs" />
     <Compile Include="Assets\Script\FlatBuffer\PacketType.cs" />
+    <Compile Include="Assets\Script\Managers\Controller\MovementController.cs" />
     <Compile Include="Assets\Script\Managers\GameManager.cs" />
     <Compile Include="Assets\Script\FlatBuffer\PosInfo.cs" />
     <Compile Include="Assets\Item\Traps\Enemy_WoodTraps.cs" />
