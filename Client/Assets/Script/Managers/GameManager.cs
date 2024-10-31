@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        // Release 모드에서는 없애야 하는 코드
+        int height = 480;
+        int width = 720;
+        Screen.SetResolution(width, height, false);
+        // Release 모드에서는 없애야 하는 코드
+
         // 싱글턴 인스턴스 설정
         if (Instance == null)
         {

@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEditor;
@@ -6,15 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
-// 1. 상대방 깃 최신 버전 (git pull Sub)
-// 2. 자신의 브랜치 버전 최신 상태 동기화 (git pull Server)
-// 3. git merge Sub
-
 #if UNITY_EDITOR
 public class ScriptBatch
 {
     const string DEFAULT_TOOL_PATH = "Tools/BuildAndRun";
-    const string GAMENAME = "게임이름";
+    const string GAMENAME = "BuiltGame";
     [MenuItem(DEFAULT_TOOL_PATH + "/Player1")]
     public static void BuildAndRunPlayer1()
     {
@@ -37,30 +32,24 @@ public class ScriptBatch
     }
     public static void BuildGame(int cnt)
     {
-        string path = Application.dataPath + "/Builds";
-
+        string path = Application.dataPath.Replace("/Assets", "") + "/Builds";
         Debug.Log(path);
 
-        //int height = 720;
-        //int width = 480;
 
-        //Screen.SetResolution(width, height, false);
-        //string path = EditorUtility.SaveFolderPanel("제목입니다", "빌드", "폴더명"); // program title, 빌드 경로, 폴더명
+        var scenes = GetAllSceneNames();
 
+        for (int i = 0; i < cnt; i++)
+        {
+            string fileName = $"{ GAMENAME }{ i}.exe";
+            string executionPath = $"{path}/{fileName}";
 
-        //var scenes = GetAllSceneNames();
+            BuildPipeline.BuildPlayer(scenes.ToArray(), executionPath, BuildTarget.StandaloneWindows, BuildOptions.None);
 
-        //for (int i = 0; i < cnt; i++)
-        //{
-        //    string executionPath = $"{path}/{GAMENAME}{i}.exe";
-
-        //    BuildPipeline.BuildPlayer(scenes.ToArray(), executionPath, BuildTarget.StandaloneWindows, BuildOptions.None);
-
-        //    // 빌드에 포함할 씬, 빌드될 경로, 
-        //    Process proc = new Process();
-        //    proc.StartInfo.FileName = executionPath;
-        //    proc.Start();
-        //}
+            // 빌드에 포함할 씬, 빌드될 경로, 
+            Process proc = new Process();
+            proc.StartInfo.FileName = executionPath;
+            proc.Start();
+        }
 
     }
     public static List<string> GetAllSceneNames()
