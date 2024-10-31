@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
     private void Move(float input)
     {
         rb.linearVelocity = new Vector2(input * moveSpeed, rb.linearVelocity.y); // 이동 속도 설정
+        Flip(input);  // 방향 반전 처리
     }
 
     private void Jump()
@@ -105,4 +106,15 @@ public class PlayerController : MonoBehaviour
         // 사망 처리 로직 추가 가능
     }
 
+    private void Flip(float input)
+    {
+        if (input > 0) 
+        {
+            transform.localScale = new Vector3(1, 1, 1); 
+        }
+        else if (input < 0) 
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
 }

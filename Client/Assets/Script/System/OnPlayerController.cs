@@ -13,6 +13,6 @@ public class OnPlayerController : MonoBehaviour
     void Update()
     {
         // PlayerController의 Update 메서드를 호출하여 입력을 처리합니다.
-        playerController.HandleInput(); // HandleInput 메서드로 변경
+        playerController.HandleInput(); // HandleInput 메서드로 변경 (?????????????????????????)
     }
-}
+} 
