@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour, IManager
+public class SceneManagerEx : IManager
 {
     public void Init()
     {
@@ -17,6 +17,10 @@ public class SceneManager : MonoBehaviour, IManager
 
     public void LoadScene(string sceneName)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName);
+    }
+    public int GetSceneCounts()
+    {
+        return SceneManager.sceneCount;
     }
 }

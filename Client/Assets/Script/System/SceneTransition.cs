@@ -19,7 +19,7 @@ public class SceneTransition : MonoBehaviour
         // GameManager를 통해 씬을 로드
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.LoadScene(sceneToLoad);
+            GameManager.Scene.LoadScene(sceneToLoad);
         }
         else
         {

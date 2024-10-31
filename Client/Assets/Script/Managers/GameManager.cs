@@ -18,8 +18,10 @@ public class GameManager : MonoBehaviour
     public PoolManager pool;                    // 풀링 매니저
     private NetworkManager _network = new NetworkManager(); // 네트워크 매니저
     private PacketManager _packet = new PacketManager();    // 패킷 매니저
+    private SceneManagerEx _scene = new SceneManagerEx();
     public static NetworkManager Network { get { return Instance._network; } }
     public static PacketManager Packet { get { return Instance._packet; } }
+    public static SceneManagerEx Scene { get { return Instance._scene; } }
     #endregion
 
     private void Awake()
@@ -58,11 +60,5 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Network.Update();
-    }
-
-    // 씬을 로드하는 메서드 추가
-    public void LoadScene(string sceneName)
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 }
