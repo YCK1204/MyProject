@@ -67,7 +67,7 @@
     <Compile Include="Assets\Script\ObjectPool\PoolManager.cs" />
     <Compile Include="Assets\Script\FlatBuffer\C_EnterRoom.cs" />
     <Compile Include="Assets\Script\FlatBuffer\Dir.cs" />
-    <Compile Include="Assets\Script\System\OnPlayerController.cs" />
+    <Compile Include="Assets\Script\Managers\ref\SceneTransition.cs" />
     <Compile Include="Assets\Script\FlatBuffer\EnterRoomError.cs" />
     <Compile Include="Assets\Script\Utils\Util.cs" />
     <Compile Include="Assets\Script\FlatBuffer\S_RoomList.cs" />
@@ -82,11 +82,11 @@
     <Compile Include="Assets\Script\FlatBuffer\ObjectType.cs" />
     <Compile Include="Assets\Script\Managers\UiManager.cs" />
     <Compile Include="Assets\Script\FlatBuffer\PacketType.cs" />
+    <Compile Include="Assets\Script\Managers\Controller\OnPlayerController.cs" />
     <Compile Include="Assets\Script\Managers\Controller\MovementController.cs" />
     <Compile Include="Assets\Script\Managers\GameManager.cs" />
     <Compile Include="Assets\Script\FlatBuffer\PosInfo.cs" />
     <Compile Include="Assets\Item\Traps\Enemy_WoodTraps.cs" />
-    <Compile Include="Assets\Script\System\SceneTransition.cs" />
     <Compile Include="Assets\Script\FlatBuffer\S_CreateRoom.cs" />
     <Compile Include="Assets\Script\FlatBuffer\C_RoomList.cs" />
     <Compile Include="Assets\Script\Managers\NetworkManager.cs" />
