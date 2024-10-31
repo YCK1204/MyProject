@@ -1,10 +1,5 @@
 ﻿using Server.Game.Object;
 using Server.Session;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server.Game.Room
 {
@@ -75,7 +70,7 @@ namespace Server.Game.Room
         {
             PosInfo posInfo = packet.Pos.Value;
             Vector2 posVec2 = new Vector2(posInfo.X, posInfo.Y);
-            Vector2 cellPos =  _map.PosToCell(posVec2);
+            Vector2 cellPos = _map.PosToCell(posVec2);
             Console.WriteLine($"cellpos x : {cellPos.x}, y : {cellPos.y}");
             Vector2 originalPos = _map.CellToPos(cellPos);
             Console.WriteLine($"original x : {originalPos.x}, y : {originalPos.y}");
