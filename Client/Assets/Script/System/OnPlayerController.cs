@@ -2,18 +2,17 @@ using UnityEngine;
 
 public class OnPlayerController : MonoBehaviour
 {
-    private MovementController movementController;
+    private PlayerController playerController;
 
     void Start()
     {
-        // MovementController 컴포넌트를 가져옵니다.
-        movementController = GetComponent<MovementController>();
+        // PlayerController 컴포넌트를 가져옵니다.
+        playerController = GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        // MovementController에 입력 처리를 위임
-        movementController.ProcessInput();
+        // PlayerController의 Update 메서드를 호출하여 입력을 처리합니다.
+        playerController.HandleInput(); // HandleInput 메서드로 변경
     }
 }
-

@@ -4,7 +4,8 @@ using UnityEngine;
 public interface IManager
 {
     void Init();   // 초기화 메서드
-    void Clear();  // 리소스 정리 메서드
+    void Clear();  // 리소스 정
+                   // 리 메서드
 }
 
 public class GameManager : MonoBehaviour
