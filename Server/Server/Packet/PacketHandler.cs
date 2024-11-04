@@ -117,5 +117,12 @@ public class PacketHandler
     {
         ClientSession clientSession = session as ClientSession;
         C_RoomList packet = C_RoomList.GetRootAsC_RoomList(buffer);
+        Console.WriteLine($"C_RoomListHandler");
+        FlatBufferBuilder builder = new FlatBufferBuilder(1024);
+        List<Offset<RoomInfo>> list = new List<Offset<RoomInfo>>();
+        var vector = Manager.Room.GetRoomList(builder, list);
+        var data = S_RoomList.CreateS_RoomList(builder, vector);
+        var pkt = Manager.Packet.CreatePacket(data, builder, PacketType.S_RoomList);
+        clientSession.Send(pkt);
     }
 }

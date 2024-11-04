@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Google.FlatBuffers;
+using Server.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,6 +41,18 @@ namespace Server.Game.Room
             lock (_lock)
             {
                 return _rooms.Remove(id);
+            }
+        }
+        public VectorOffset GetRoomList(FlatBufferBuilder builder, List<Offset<RoomInfo>> list)
+        {
+            lock (_lock)
+            {
+                foreach (GameRoom room in _rooms.Values)
+                {
+                    list.Add(room.CreateRoomInfo(builder));
+                }
+                var vector = S_RoomList.CreateRoomsVector(builder, list.ToArray());
+                return vector;
             }
         }
     }

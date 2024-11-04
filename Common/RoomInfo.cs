@@ -26,13 +26,16 @@ public struct RoomInfo : IFlatbufferObject
 #endif
   public byte[] GetPasswordArray() { return __p.__vector_as_array<byte>(8); }
   public int MemberCount { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public int CurMemberCount { get { int o = __p.__offset(12); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
 
   public static Offset<RoomInfo> CreateRoomInfo(FlatBufferBuilder builder,
       int roomId = 0,
       int level = 0,
       StringOffset passwordOffset = default(StringOffset),
-      int memberCount = 0) {
-    builder.StartTable(4);
+      int memberCount = 0,
+      int curMemberCount = 0) {
+    builder.StartTable(5);
+    RoomInfo.AddCurMemberCount(builder, curMemberCount);
     RoomInfo.AddMemberCount(builder, memberCount);
     RoomInfo.AddPassword(builder, passwordOffset);
     RoomInfo.AddLevel(builder, level);
@@ -40,11 +43,12 @@ public struct RoomInfo : IFlatbufferObject
     return RoomInfo.EndRoomInfo(builder);
   }
 
-  public static void StartRoomInfo(FlatBufferBuilder builder) { builder.StartTable(4); }
+  public static void StartRoomInfo(FlatBufferBuilder builder) { builder.StartTable(5); }
   public static void AddRoomId(FlatBufferBuilder builder, int roomId) { builder.AddInt(0, roomId, 0); }
   public static void AddLevel(FlatBufferBuilder builder, int level) { builder.AddInt(1, level, 0); }
   public static void AddPassword(FlatBufferBuilder builder, StringOffset passwordOffset) { builder.AddOffset(2, passwordOffset.Value, 0); }
   public static void AddMemberCount(FlatBufferBuilder builder, int memberCount) { builder.AddInt(3, memberCount, 0); }
+  public static void AddCurMemberCount(FlatBufferBuilder builder, int curMemberCount) { builder.AddInt(4, curMemberCount, 0); }
   public static Offset<RoomInfo> EndRoomInfo(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<RoomInfo>(o);
@@ -61,6 +65,7 @@ static public class RoomInfoVerify
       && verifier.VerifyField(tablePos, 6 /*Level*/, 4 /*int*/, 4, false)
       && verifier.VerifyString(tablePos, 8 /*Password*/, false)
       && verifier.VerifyField(tablePos, 10 /*MemberCount*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 12 /*CurMemberCount*/, 4 /*int*/, 4, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

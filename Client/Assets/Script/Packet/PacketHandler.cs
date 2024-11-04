@@ -9,8 +9,8 @@ public class PacketHandler
         ServerSession serverSession = session as ServerSession;
         S_Spawn packet = S_Spawn.GetRootAsS_Spawn(buffer);
 
-        PosInfo posInfo = packet.Pos.Value;
-        Debug.Log($"S_SpawnHandler dir {posInfo.Dir}");
+        //PosInfo posInfo = packet.Pos.Value;
+        //Debug.Log($"S_SpawnHandler dir {posInfo.Dir}");
     }
     public static void S_LeaveRoomHandler(PacketSession session, ByteBuffer buffer)
     {
@@ -62,7 +62,7 @@ public class PacketHandler
         {
             case CreateRoomError.SUCCESS:
                 Debug.Log($"规 积己 己傍!!");
-                EnterRoom(serverSession);
+                //EnterRoom(serverSession);
                 break;
             case CreateRoomError.OVERLAPPED:
                 Debug.Log($"规 积己 角菩 : 锅龋 吝汗");
@@ -81,5 +81,9 @@ public class PacketHandler
 
     public static void S_RoomListHandler(PacketSession session, ByteBuffer buffer)
     {
+        ServerSession serverSession = session as ServerSession;
+        S_RoomList ret = S_RoomList.GetRootAsS_RoomList(buffer);
+
+        RoomList.Instance.InitRoomList(ret);
     }
 }

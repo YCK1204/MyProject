@@ -32,10 +32,7 @@ public class ScriptBatch
     }
     public static void BuildGame(int cnt)
     {
-        string path = Application.dataPath.Replace("/Assets", "") + "/Builds";
-        Debug.Log(path);
-
-
+        string path = Application.dataPath.Replace("Assets", "Builds");
         var scenes = GetAllSceneNames();
 
         for (int i = 0; i < cnt; i++)

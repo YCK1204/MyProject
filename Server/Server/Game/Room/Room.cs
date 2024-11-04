@@ -1,4 +1,5 @@
-﻿using Server.Game.Object;
+﻿using Google.FlatBuffers;
+using Server.Game.Object;
 using Server.Session;
 
 namespace Server.Game.Room
@@ -11,15 +12,15 @@ namespace Server.Game.Room
         public int MemberCount { get; set; }
         public int CurMemberCount { get; set; } = 0;
         object _lock = new object();
+        public int Level { get; set; }
         Dictionary<int, Player> _players = new Dictionary<int, Player>();
-        int _mapId = 0;
         public void Init(int gameLevel, int id, int memberCount, string password)
         {
             ID = id;
             Password = password;
             MemberCount = memberCount;
-            _mapId = gameLevel;
-            _map.LoadMap(_mapId);
+            Level = gameLevel;
+            _map.LoadMap(Level);
         }
         public bool Enter(Player player)
         {
@@ -75,6 +76,16 @@ namespace Server.Game.Room
             Vector2 originalPos = _map.CellToPos(cellPos);
             Console.WriteLine($"original x : {originalPos.x}, y : {originalPos.y}");
 
+        }
+
+        public Offset<RoomInfo> CreateRoomInfo(FlatBufferBuilder builder)
+        {
+            lock (_lock)
+            {
+                var ps = builder.CreateString(Password);
+                var data = RoomInfo.CreateRoomInfo(builder, ID, Level, ps, MemberCount, CurMemberCount);
+                return data;
+            }
         }
     }
 }

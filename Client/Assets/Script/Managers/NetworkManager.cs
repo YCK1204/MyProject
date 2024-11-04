@@ -17,6 +17,10 @@ public class NetworkManager : IManager
             _packetQueue.Enqueue(data);
         }
     }
+    public void Send(byte[] packet)
+    {
+        session.Send(packet);
+    }
     // Start is called before the first frame update
     public void Update()
     {

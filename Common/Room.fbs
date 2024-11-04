@@ -68,6 +68,7 @@ table RoomInfo
     level:int;
     password:string;
     memberCount:int;
+    curMemberCount:int;
 }
 
 table S_RoomList
