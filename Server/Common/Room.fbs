@@ -1,0 +1,81 @@
+include "Object.fbs";
+
+enum CreateRoomError : ushort
+{
+    SUCCESS,
+    OVERLAPPED,
+    INVALID_ID,
+    INVALID_GAME_LEVEL,
+    UNKNOWN,
+}
+
+table S_CreateRoom
+{
+    ok:CreateRoomError;
+}
+
+table C_CreateRoom
+{
+    room_id:int;
+    game_level:int;
+    passowrd:string;
+    member_count:int;
+}
+
+enum EnterRoomError : ushort
+{
+    SUCCESS,
+    FULL,
+    NOT_FOUND,
+    UNKNOWN,
+}
+
+table S_EnterRoom
+{
+    ok:EnterRoomError;
+}
+
+table C_EnterRoom
+{
+    room_Id:int;
+    password:string;
+}
+
+table S_LeaveRoom
+{
+    id:int;
+}
+
+table C_LeaveRoom
+{
+    room_Id:int;
+}
+
+table S_Spawn
+{
+    id:int;
+    pos:PosInfo;
+}
+
+table C_Spawn
+{
+    pos:PosInfo;
+}
+
+table RoomInfo
+{
+    roomId:int;
+    level:int;
+    password:string;
+    memberCount:int;
+    curMemberCount:int;
+}
+
+table S_RoomList
+{
+    rooms:[RoomInfo];
+}
+
+table C_RoomList
+{
+}
