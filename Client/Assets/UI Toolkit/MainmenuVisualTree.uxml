@@ -1,0 +1,8 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainmenuStyle.uss?fileID=7433441132597879392&amp;guid=80e489262c4b2394d84a12fd60d2532c&amp;type=3#MainmenuStyle" />
+    <engine:VisualElement name="Container" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/simple%20UI%20&amp;%20icons/7170113c6a983.jpg?fileID=2800000&amp;guid=639dd31dccd7e5149aa314ae05db985d&amp;type=3#7170113c6a983&quot;);">
+        <engine:Label text="Main Menu" name="Header" class="header" style="-unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); font-size: 100px; -unity-text-align: upper-center;" />
+        <engine:Button text="Start&#10;" name="StartGameButton" class="button" style="font-size: 20px; width: 220px; height: 60px; align-self: center; -unity-font-style: bold;" />
+        <engine:Button text="Settings&#10;" enable-rich-text="true" name="setting-btn" class="button" style="align-self: center; width: 220px; height: 60px; -unity-font-style: bold; font-size: 20px; align-items: center;" />
+    </engine:VisualElement>
+</engine:UXML>
