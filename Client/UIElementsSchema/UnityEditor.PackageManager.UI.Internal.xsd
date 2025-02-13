@@ -24,6 +24,7 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PackageSearchBar" substitutionGroup="engine:VisualElement" xmlns:q1="UnityEditor.PackageManager.UI.Internal" type="q1:PackageSearchBarType" />
+<<<<<<< HEAD
   <xs:complexType name="PackageDetailsBodyType">
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
@@ -93,6 +94,8 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PackageManagerToolbar" substitutionGroup="engine:VisualElement" xmlns:q4="UnityEditor.PackageManager.UI.Internal" type="q4:PackageManagerToolbarType" />
+=======
+>>>>>>> main
   <xs:complexType name="ToolbarWindowMenuType">
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
@@ -125,8 +128,13 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="ToolbarWindowMenu" substitutionGroup="engine:VisualElement" xmlns:q5="UnityEditor.PackageManager.UI.Internal" type="q5:ToolbarWindowMenuType" />
   <xs:complexType name="PackageLoadBarType">
+=======
+  <xs:element name="ToolbarWindowMenu" substitutionGroup="engine:VisualElement" xmlns:q2="UnityEditor.PackageManager.UI.Internal" type="q2:ToolbarWindowMenuType" />
+  <xs:complexType name="TagLabelListType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -148,8 +156,13 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="PackageLoadBar" substitutionGroup="engine:VisualElement" xmlns:q6="UnityEditor.PackageManager.UI.Internal" type="q6:PackageLoadBarType" />
   <xs:complexType name="PackageListType">
+=======
+  <xs:element name="TagLabelList" substitutionGroup="engine:VisualElement" xmlns:q3="UnityEditor.PackageManager.UI.Internal" type="q3:TagLabelListType" />
+  <xs:complexType name="DropdownButtonType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -159,7 +172,11 @@
         <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
         <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
         <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+<<<<<<< HEAD
         <xs:attribute default="true" name="focusable" type="xs:boolean" use="optional" />
+=======
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+>>>>>>> main
         <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
         <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
         <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
@@ -171,7 +188,158 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="PackageList" substitutionGroup="engine:VisualElement" xmlns:q7="UnityEditor.PackageManager.UI.Internal" type="q7:PackageListType" />
+=======
+  <xs:element name="DropdownButton" substitutionGroup="engine:VisualElement" xmlns:q4="UnityEditor.PackageManager.UI.Internal" type="q4:DropdownButtonType" />
+  <xs:complexType name="PackageDetailsBodyType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PackageDetailsBody" substitutionGroup="engine:VisualElement" xmlns:q5="UnityEditor.PackageManager.UI.Internal" type="q5:PackageDetailsBodyType" />
+  <xs:complexType name="ProgressBarType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProgressBar" substitutionGroup="engine:VisualElement" xmlns:q6="UnityEditor.PackageManager.UI.Internal" type="q6:ProgressBarType" />
+  <xs:complexType name="MultiSelectDetailsType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MultiSelectDetails" substitutionGroup="engine:VisualElement" xmlns:q7="UnityEditor.PackageManager.UI.Internal" type="q7:MultiSelectDetailsType" />
+  <xs:complexType name="LoadingSpinnerType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoadingSpinner" substitutionGroup="engine:VisualElement" xmlns:q8="UnityEditor.PackageManager.UI.Internal" type="q8:LoadingSpinnerType" />
+  <xs:complexType name="PackageDetailsHeaderType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PackageDetailsHeader" substitutionGroup="engine:VisualElement" xmlns:q9="UnityEditor.PackageManager.UI.Internal" type="q9:PackageDetailsHeaderType" />
+  <xs:complexType name="SelectableLabelType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="-1" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="true" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="binding-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="text" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enable-rich-text" type="xs:boolean" use="optional" />
+        <xs:attribute default="true" name="emoji-fallback-support" type="xs:boolean" use="optional" />
+        <xs:attribute default="false" name="parse-escape-sequences" type="xs:boolean" use="optional" />
+        <xs:attribute default="true" name="selectable" type="xs:boolean" use="optional" />
+        <xs:attribute default="true" name="double-click-selects-word" type="xs:boolean" use="optional" />
+        <xs:attribute default="true" name="triple-click-selects-line" type="xs:boolean" use="optional" />
+        <xs:attribute default="true" name="display-tooltip-when-elided" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SelectableLabel" substitutionGroup="engine:VisualElement" xmlns:q10="UnityEditor.PackageManager.UI.Internal" type="q10:SelectableLabelType" />
+>>>>>>> main
   <xs:simpleType name="Sidebar_mode_Type">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Vertical" />
@@ -222,6 +390,7 @@
         <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
         <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
         <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+<<<<<<< HEAD
         <xs:attribute default="Vertical" name="mode" xmlns:q8="UnityEditor.PackageManager.UI.Internal" type="q8:Sidebar_mode_Type" use="optional" />
         <xs:attribute default="Default" name="nested-interaction-kind" xmlns:q9="UnityEditor.PackageManager.UI.Internal" type="q9:Sidebar_nested-interaction-kind_Type" use="optional" />
         <xs:attribute default="false" name="show-horizontal-scroller" type="xs:boolean" use="optional" />
@@ -232,6 +401,18 @@
         <xs:attribute default="-1" name="vertical-page-size" type="xs:float" use="optional" />
         <xs:attribute default="18" name="mouse-wheel-scroll-size" type="xs:float" use="optional" />
         <xs:attribute default="Clamped" name="touch-scroll-type" xmlns:q12="UnityEditor.PackageManager.UI.Internal" type="q12:Sidebar_touch-scroll-type_Type" use="optional" />
+=======
+        <xs:attribute default="Vertical" name="mode" xmlns:q11="UnityEditor.PackageManager.UI.Internal" type="q11:Sidebar_mode_Type" use="optional" />
+        <xs:attribute default="Default" name="nested-interaction-kind" xmlns:q12="UnityEditor.PackageManager.UI.Internal" type="q12:Sidebar_nested-interaction-kind_Type" use="optional" />
+        <xs:attribute default="false" name="show-horizontal-scroller" type="xs:boolean" use="optional" />
+        <xs:attribute default="false" name="show-vertical-scroller" type="xs:boolean" use="optional" />
+        <xs:attribute default="Auto" name="horizontal-scroller-visibility" xmlns:q13="UnityEditor.PackageManager.UI.Internal" type="q13:Sidebar_horizontal-scroller-visibility_Type" use="optional" />
+        <xs:attribute default="Auto" name="vertical-scroller-visibility" xmlns:q14="UnityEditor.PackageManager.UI.Internal" type="q14:Sidebar_vertical-scroller-visibility_Type" use="optional" />
+        <xs:attribute default="-1" name="horizontal-page-size" type="xs:float" use="optional" />
+        <xs:attribute default="-1" name="vertical-page-size" type="xs:float" use="optional" />
+        <xs:attribute default="18" name="mouse-wheel-scroll-size" type="xs:float" use="optional" />
+        <xs:attribute default="Clamped" name="touch-scroll-type" xmlns:q15="UnityEditor.PackageManager.UI.Internal" type="q15:Sidebar_touch-scroll-type_Type" use="optional" />
+>>>>>>> main
         <xs:attribute default="0.135" name="scroll-deceleration-rate" type="xs:float" use="optional" />
         <xs:attribute default="0.1" name="elasticity" type="xs:float" use="optional" />
         <xs:attribute default="16" name="elastic-animation-interval-ms" type="xs:long" use="optional" />
@@ -242,8 +423,13 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="Sidebar" substitutionGroup="engine:VisualElement" xmlns:q13="UnityEditor.PackageManager.UI.Internal" type="q13:SidebarType" />
   <xs:complexType name="DropdownButtonType">
+=======
+  <xs:element name="Sidebar" substitutionGroup="engine:VisualElement" xmlns:q16="UnityEditor.PackageManager.UI.Internal" type="q16:SidebarType" />
+  <xs:complexType name="PackageDetailsTabViewType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -265,6 +451,7 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="DropdownButton" substitutionGroup="engine:VisualElement" xmlns:q14="UnityEditor.PackageManager.UI.Internal" type="q14:DropdownButtonType" />
   <xs:complexType name="AlertType">
     <xs:complexContent mixed="false">
@@ -335,6 +522,9 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PackagePlatformList" substitutionGroup="engine:VisualElement" xmlns:q17="UnityEditor.PackageManager.UI.Internal" type="q17:PackagePlatformListType" />
+=======
+  <xs:element name="PackageDetailsTabView" substitutionGroup="engine:VisualElement" xmlns:q17="UnityEditor.PackageManager.UI.Internal" type="q17:PackageDetailsTabViewType" />
+>>>>>>> main
   <xs:simpleType name="PackageListScrollView_mode_Type">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Vertical" />
@@ -406,7 +596,11 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PackageListScrollView" substitutionGroup="engine:VisualElement" xmlns:q23="UnityEditor.PackageManager.UI.Internal" type="q23:PackageListScrollViewType" />
+<<<<<<< HEAD
   <xs:complexType name="TagLabelListType">
+=======
+  <xs:complexType name="SignInBarType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -428,8 +622,13 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="TagLabelList" substitutionGroup="engine:VisualElement" xmlns:q24="UnityEditor.PackageManager.UI.Internal" type="q24:TagLabelListType" />
   <xs:complexType name="PackageDetailsLinksType">
+=======
+  <xs:element name="SignInBar" substitutionGroup="engine:VisualElement" xmlns:q24="UnityEditor.PackageManager.UI.Internal" type="q24:SignInBarType" />
+  <xs:complexType name="PackageManagerToolbarType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -451,7 +650,57 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="PackageDetailsLinks" substitutionGroup="engine:VisualElement" xmlns:q25="UnityEditor.PackageManager.UI.Internal" type="q25:PackageDetailsLinksType" />
+=======
+  <xs:element name="PackageManagerToolbar" substitutionGroup="engine:VisualElement" xmlns:q25="UnityEditor.PackageManager.UI.Internal" type="q25:PackageManagerToolbarType" />
+  <xs:complexType name="PackageDetailsType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PackageDetails" substitutionGroup="engine:VisualElement" xmlns:q26="UnityEditor.PackageManager.UI.Internal" type="q26:PackageDetailsType" />
+  <xs:complexType name="InProgressViewType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InProgressView" substitutionGroup="engine:VisualElement" xmlns:q27="UnityEditor.PackageManager.UI.Internal" type="q27:InProgressViewType" />
+>>>>>>> main
   <xs:simpleType name="PackageListView_virtualization-method_Type">
     <xs:restriction base="xs:string">
       <xs:enumeration value="FixedHeight" />
@@ -501,10 +750,17 @@
         <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
         <xs:attribute default="" name="binding-path" type="xs:string" use="optional" />
         <xs:attribute default="25" name="fixed-item-height" type="xs:float" use="optional" />
+<<<<<<< HEAD
         <xs:attribute default="FixedHeight" name="virtualization-method" xmlns:q26="UnityEditor.PackageManager.UI.Internal" type="q26:PackageListView_virtualization-method_Type" use="optional" />
         <xs:attribute default="false" name="show-border" type="xs:boolean" use="optional" />
         <xs:attribute default="Multiple" name="selection-type" xmlns:q27="UnityEditor.PackageManager.UI.Internal" type="q27:PackageListView_selection-type_Type" use="optional" />
         <xs:attribute default="None" name="show-alternating-row-backgrounds" xmlns:q28="UnityEditor.PackageManager.UI.Internal" type="q28:PackageListView_show-alternating-row-backgrounds_Type" use="optional" />
+=======
+        <xs:attribute default="FixedHeight" name="virtualization-method" xmlns:q28="UnityEditor.PackageManager.UI.Internal" type="q28:PackageListView_virtualization-method_Type" use="optional" />
+        <xs:attribute default="false" name="show-border" type="xs:boolean" use="optional" />
+        <xs:attribute default="Multiple" name="selection-type" xmlns:q29="UnityEditor.PackageManager.UI.Internal" type="q29:PackageListView_selection-type_Type" use="optional" />
+        <xs:attribute default="None" name="show-alternating-row-backgrounds" xmlns:q30="UnityEditor.PackageManager.UI.Internal" type="q30:PackageListView_show-alternating-row-backgrounds_Type" use="optional" />
+>>>>>>> main
         <xs:attribute default="false" name="reorderable" type="xs:boolean" use="optional" />
         <xs:attribute default="false" name="horizontal-scrolling" type="xs:boolean" use="optional" />
         <xs:attribute default="false" name="show-foldout-header" type="xs:boolean" use="optional" />
@@ -512,9 +768,15 @@
         <xs:attribute default="false" name="show-add-remove-footer" type="xs:boolean" use="optional" />
         <xs:attribute default="true" name="allow-add" type="xs:boolean" use="optional" />
         <xs:attribute default="true" name="allow-remove" type="xs:boolean" use="optional" />
+<<<<<<< HEAD
         <xs:attribute default="Simple" name="reorder-mode" xmlns:q29="UnityEditor.PackageManager.UI.Internal" type="q29:PackageListView_reorder-mode_Type" use="optional" />
         <xs:attribute default="true" name="show-bound-collection-size" type="xs:boolean" use="optional" />
         <xs:attribute default="Manual" name="binding-source-selection-mode" xmlns:q30="UnityEditor.PackageManager.UI.Internal" type="q30:PackageListView_binding-source-selection-mode_Type" use="optional" />
+=======
+        <xs:attribute default="Simple" name="reorder-mode" xmlns:q31="UnityEditor.PackageManager.UI.Internal" type="q31:PackageListView_reorder-mode_Type" use="optional" />
+        <xs:attribute default="true" name="show-bound-collection-size" type="xs:boolean" use="optional" />
+        <xs:attribute default="Manual" name="binding-source-selection-mode" xmlns:q32="UnityEditor.PackageManager.UI.Internal" type="q32:PackageListView_binding-source-selection-mode_Type" use="optional" />
+>>>>>>> main
         <xs:attribute default="" name="item-template" type="xs:string" use="optional" />
         <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
         <xs:attribute default="" name="class" type="xs:string" use="optional" />
@@ -523,6 +785,7 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="PackageListView" substitutionGroup="engine:VisualElement" xmlns:q31="UnityEditor.PackageManager.UI.Internal" type="q31:PackageListViewType" />
   <xs:complexType name="MultiSelectDetailsType">
     <xs:complexContent mixed="false">
@@ -625,6 +888,9 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ScopedRegistriesSettings" substitutionGroup="engine:VisualElement" xmlns:q35="UnityEditor.PackageManager.UI.Internal" type="q35:ScopedRegistriesSettingsType" />
+=======
+  <xs:element name="PackageListView" substitutionGroup="engine:VisualElement" xmlns:q33="UnityEditor.PackageManager.UI.Internal" type="q33:PackageListViewType" />
+>>>>>>> main
   <xs:complexType name="ExtendableToolbarMenuType">
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
@@ -657,8 +923,13 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="ExtendableToolbarMenu" substitutionGroup="engine:VisualElement" xmlns:q36="UnityEditor.PackageManager.UI.Internal" type="q36:ExtendableToolbarMenuType" />
   <xs:complexType name="ProgressBarType">
+=======
+  <xs:element name="ExtendableToolbarMenu" substitutionGroup="engine:VisualElement" xmlns:q34="UnityEditor.PackageManager.UI.Internal" type="q34:ExtendableToolbarMenuType" />
+  <xs:complexType name="PackageStatusBarType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -680,8 +951,13 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="ProgressBar" substitutionGroup="engine:VisualElement" xmlns:q37="UnityEditor.PackageManager.UI.Internal" type="q37:ProgressBarType" />
   <xs:complexType name="InProgressViewType">
+=======
+  <xs:element name="PackageStatusBar" substitutionGroup="engine:VisualElement" xmlns:q35="UnityEditor.PackageManager.UI.Internal" type="q35:PackageStatusBarType" />
+  <xs:complexType name="AlertType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -703,8 +979,13 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="InProgressView" substitutionGroup="engine:VisualElement" xmlns:q38="UnityEditor.PackageManager.UI.Internal" type="q38:InProgressViewType" />
   <xs:complexType name="PackageDetailsType">
+=======
+  <xs:element name="Alert" substitutionGroup="engine:VisualElement" xmlns:q36="UnityEditor.PackageManager.UI.Internal" type="q36:AlertType" />
+  <xs:complexType name="PackageLoadBarType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -726,8 +1007,36 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="PackageDetails" substitutionGroup="engine:VisualElement" xmlns:q39="UnityEditor.PackageManager.UI.Internal" type="q39:PackageDetailsType" />
   <xs:complexType name="LoadingSpinnerType">
+=======
+  <xs:element name="PackageLoadBar" substitutionGroup="engine:VisualElement" xmlns:q37="UnityEditor.PackageManager.UI.Internal" type="q37:PackageLoadBarType" />
+  <xs:complexType name="PackageListType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="true" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PackageList" substitutionGroup="engine:VisualElement" xmlns:q38="UnityEditor.PackageManager.UI.Internal" type="q38:PackageListType" />
+  <xs:complexType name="PackageToolbarType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -749,8 +1058,13 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="LoadingSpinner" substitutionGroup="engine:VisualElement" xmlns:q40="UnityEditor.PackageManager.UI.Internal" type="q40:LoadingSpinnerType" />
   <xs:complexType name="SignInBarType">
+=======
+  <xs:element name="PackageToolbar" substitutionGroup="engine:VisualElement" xmlns:q39="UnityEditor.PackageManager.UI.Internal" type="q39:PackageToolbarType" />
+  <xs:complexType name="ScopedRegistriesSettingsType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -772,8 +1086,13 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="SignInBar" substitutionGroup="engine:VisualElement" xmlns:q41="UnityEditor.PackageManager.UI.Internal" type="q41:SignInBarType" />
   <xs:complexType name="PackageDetailsTabViewType">
+=======
+  <xs:element name="ScopedRegistriesSettings" substitutionGroup="engine:VisualElement" xmlns:q40="UnityEditor.PackageManager.UI.Internal" type="q40:ScopedRegistriesSettingsType" />
+  <xs:complexType name="PackageDetailsLinksType">
+>>>>>>> main
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
@@ -795,5 +1114,32 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:element name="PackageDetailsTabView" substitutionGroup="engine:VisualElement" xmlns:q42="UnityEditor.PackageManager.UI.Internal" type="q42:PackageDetailsTabViewType" />
+=======
+  <xs:element name="PackageDetailsLinks" substitutionGroup="engine:VisualElement" xmlns:q41="UnityEditor.PackageManager.UI.Internal" type="q41:PackageDetailsLinksType" />
+  <xs:complexType name="PackagePlatformListType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="Inherit" name="language-direction" type="engine:VisualElement_language-direction_Type" use="optional" />
+        <xs:attribute default="" name="data-source" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-path" type="xs:string" use="optional" />
+        <xs:attribute default="" name="data-source-type" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PackagePlatformList" substitutionGroup="engine:VisualElement" xmlns:q42="UnityEditor.PackageManager.UI.Internal" type="q42:PackagePlatformListType" />
+>>>>>>> main
 </xs:schema>

@@ -54,7 +54,11 @@
       <xs:restriction base="engine:VisualElementType">
         <xs:attribute default="" name="name" type="xs:string" use="optional" />
         <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+<<<<<<< HEAD
         <xs:attribute default="6cf7a6de-4163-49cf-885f-cb7f4fa579ab" name="view-data-key" type="xs:string" use="optional" />
+=======
+        <xs:attribute default="b57d0802-12c7-43f9-b229-12d75d228d83" name="view-data-key" type="xs:string" use="optional" />
+>>>>>>> main
         <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
         <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
         <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />

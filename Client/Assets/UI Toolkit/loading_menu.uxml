@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainmenuStyle.uss?fileID=7433441132597879392&amp;guid=80e489262c4b2394d84a12fd60d2532c&amp;type=3#MainmenuStyle" />
+    <ui:VisualElement style="flex-grow: 1; margin-top: 50px; margin-right: 50px; margin-bottom: 50px; margin-left: 50px;">
+        <ui:Label text="LOADING..." style="font-size: 50px; padding-bottom: 0;" />
+        <ui:ProgressBar value="0.13" high-value="1" name="loading-progress-bar" style="align-items: stretch; width: 200px; height: auto; color: rgb(200, 106, 106); align-self: auto; flex-direction: column-reverse; justify-content: flex-end;" />
+    </ui:VisualElement>
+</ui:UXML>
