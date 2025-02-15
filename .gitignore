@@ -17,3 +17,5 @@
 **/**/**/obj
 Server/Common/*.cs
 Server/Common/**/*.cs
+Server/Server/Server/FlatBuffer/*.cs
+Client/Scripts/FlatBuffer/*.cs

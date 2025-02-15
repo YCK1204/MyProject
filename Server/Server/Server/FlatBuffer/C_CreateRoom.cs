@@ -16,35 +16,37 @@ public struct C_CreateRoom : IFlatbufferObject
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
   public C_CreateRoom __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
-  public int RoomId { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int GameLevel { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public string Passowrd { get { int o = __p.__offset(8); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
+  public string Password { get { int o = __p.__offset(4); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
 #if ENABLE_SPAN_T
-  public Span<byte> GetPassowrdBytes() { return __p.__vector_as_span<byte>(8, 1); }
+  public Span<byte> GetPasswordBytes() { return __p.__vector_as_span<byte>(4, 1); }
 #else
-  public ArraySegment<byte>? GetPassowrdBytes() { return __p.__vector_as_arraysegment(8); }
+  public ArraySegment<byte>? GetPasswordBytes() { return __p.__vector_as_arraysegment(4); }
 #endif
-  public byte[] GetPassowrdArray() { return __p.__vector_as_array<byte>(8); }
-  public int MemberCount { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public byte[] GetPasswordArray() { return __p.__vector_as_array<byte>(4); }
+  public string RoomTitle { get { int o = __p.__offset(6); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
+#if ENABLE_SPAN_T
+  public Span<byte> GetRoomTitleBytes() { return __p.__vector_as_span<byte>(6, 1); }
+#else
+  public ArraySegment<byte>? GetRoomTitleBytes() { return __p.__vector_as_arraysegment(6); }
+#endif
+  public byte[] GetRoomTitleArray() { return __p.__vector_as_array<byte>(6); }
+  public byte Theme { get { int o = __p.__offset(8); return o != 0 ? __p.bb.Get(o + __p.bb_pos) : (byte)0; } }
 
   public static Offset<C_CreateRoom> CreateC_CreateRoom(FlatBufferBuilder builder,
-      int room_id = 0,
-      int game_level = 0,
-      StringOffset passowrdOffset = default(StringOffset),
-      int member_count = 0) {
-    builder.StartTable(4);
-    C_CreateRoom.AddMemberCount(builder, member_count);
-    C_CreateRoom.AddPassowrd(builder, passowrdOffset);
-    C_CreateRoom.AddGameLevel(builder, game_level);
-    C_CreateRoom.AddRoomId(builder, room_id);
+      StringOffset passwordOffset = default(StringOffset),
+      StringOffset room_titleOffset = default(StringOffset),
+      byte theme = 0) {
+    builder.StartTable(3);
+    C_CreateRoom.AddRoomTitle(builder, room_titleOffset);
+    C_CreateRoom.AddPassword(builder, passwordOffset);
+    C_CreateRoom.AddTheme(builder, theme);
     return C_CreateRoom.EndC_CreateRoom(builder);
   }
 
-  public static void StartC_CreateRoom(FlatBufferBuilder builder) { builder.StartTable(4); }
-  public static void AddRoomId(FlatBufferBuilder builder, int roomId) { builder.AddInt(0, roomId, 0); }
-  public static void AddGameLevel(FlatBufferBuilder builder, int gameLevel) { builder.AddInt(1, gameLevel, 0); }
-  public static void AddPassowrd(FlatBufferBuilder builder, StringOffset passowrdOffset) { builder.AddOffset(2, passowrdOffset.Value, 0); }
-  public static void AddMemberCount(FlatBufferBuilder builder, int memberCount) { builder.AddInt(3, memberCount, 0); }
+  public static void StartC_CreateRoom(FlatBufferBuilder builder) { builder.StartTable(3); }
+  public static void AddPassword(FlatBufferBuilder builder, StringOffset passwordOffset) { builder.AddOffset(0, passwordOffset.Value, 0); }
+  public static void AddRoomTitle(FlatBufferBuilder builder, StringOffset roomTitleOffset) { builder.AddOffset(1, roomTitleOffset.Value, 0); }
+  public static void AddTheme(FlatBufferBuilder builder, byte theme) { builder.AddByte(2, theme, 0); }
   public static Offset<C_CreateRoom> EndC_CreateRoom(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<C_CreateRoom>(o);
@@ -57,10 +59,9 @@ static public class C_CreateRoomVerify
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {
     return verifier.VerifyTableStart(tablePos)
-      && verifier.VerifyField(tablePos, 4 /*RoomId*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 6 /*GameLevel*/, 4 /*int*/, 4, false)
-      && verifier.VerifyString(tablePos, 8 /*Passowrd*/, false)
-      && verifier.VerifyField(tablePos, 10 /*MemberCount*/, 4 /*int*/, 4, false)
+      && verifier.VerifyString(tablePos, 4 /*Password*/, false)
+      && verifier.VerifyString(tablePos, 6 /*RoomTitle*/, false)
+      && verifier.VerifyField(tablePos, 8 /*Theme*/, 1 /*byte*/, 1, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

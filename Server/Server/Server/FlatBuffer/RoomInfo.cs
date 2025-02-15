@@ -16,39 +16,45 @@ public struct RoomInfo : IFlatbufferObject
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
   public RoomInfo __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
-  public int RoomId { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int Level { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public string Password { get { int o = __p.__offset(8); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
+  public string RoomTitle { get { int o = __p.__offset(4); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
 #if ENABLE_SPAN_T
-  public Span<byte> GetPasswordBytes() { return __p.__vector_as_span<byte>(8, 1); }
+  public Span<byte> GetRoomTitleBytes() { return __p.__vector_as_span<byte>(4, 1); }
 #else
-  public ArraySegment<byte>? GetPasswordBytes() { return __p.__vector_as_arraysegment(8); }
+  public ArraySegment<byte>? GetRoomTitleBytes() { return __p.__vector_as_arraysegment(4); }
 #endif
-  public byte[] GetPasswordArray() { return __p.__vector_as_array<byte>(8); }
-  public int MemberCount { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int CurMemberCount { get { int o = __p.__offset(12); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public byte[] GetRoomTitleArray() { return __p.__vector_as_array<byte>(4); }
+  public uint RoomId { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetUint(o + __p.bb_pos) : (uint)0; } }
+  public byte CurMemberCount { get { int o = __p.__offset(8); return o != 0 ? __p.bb.Get(o + __p.bb_pos) : (byte)0; } }
+  public byte Theme { get { int o = __p.__offset(10); return o != 0 ? __p.bb.Get(o + __p.bb_pos) : (byte)0; } }
+  public string Password { get { int o = __p.__offset(12); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
+#if ENABLE_SPAN_T
+  public Span<byte> GetPasswordBytes() { return __p.__vector_as_span<byte>(12, 1); }
+#else
+  public ArraySegment<byte>? GetPasswordBytes() { return __p.__vector_as_arraysegment(12); }
+#endif
+  public byte[] GetPasswordArray() { return __p.__vector_as_array<byte>(12); }
 
   public static Offset<RoomInfo> CreateRoomInfo(FlatBufferBuilder builder,
-      int roomId = 0,
-      int level = 0,
-      StringOffset passwordOffset = default(StringOffset),
-      int memberCount = 0,
-      int curMemberCount = 0) {
+      StringOffset room_titleOffset = default(StringOffset),
+      uint room_id = 0,
+      byte cur_member_count = 0,
+      byte theme = 0,
+      StringOffset passwordOffset = default(StringOffset)) {
     builder.StartTable(5);
-    RoomInfo.AddCurMemberCount(builder, curMemberCount);
-    RoomInfo.AddMemberCount(builder, memberCount);
     RoomInfo.AddPassword(builder, passwordOffset);
-    RoomInfo.AddLevel(builder, level);
-    RoomInfo.AddRoomId(builder, roomId);
+    RoomInfo.AddRoomId(builder, room_id);
+    RoomInfo.AddRoomTitle(builder, room_titleOffset);
+    RoomInfo.AddTheme(builder, theme);
+    RoomInfo.AddCurMemberCount(builder, cur_member_count);
     return RoomInfo.EndRoomInfo(builder);
   }
 
   public static void StartRoomInfo(FlatBufferBuilder builder) { builder.StartTable(5); }
-  public static void AddRoomId(FlatBufferBuilder builder, int roomId) { builder.AddInt(0, roomId, 0); }
-  public static void AddLevel(FlatBufferBuilder builder, int level) { builder.AddInt(1, level, 0); }
-  public static void AddPassword(FlatBufferBuilder builder, StringOffset passwordOffset) { builder.AddOffset(2, passwordOffset.Value, 0); }
-  public static void AddMemberCount(FlatBufferBuilder builder, int memberCount) { builder.AddInt(3, memberCount, 0); }
-  public static void AddCurMemberCount(FlatBufferBuilder builder, int curMemberCount) { builder.AddInt(4, curMemberCount, 0); }
+  public static void AddRoomTitle(FlatBufferBuilder builder, StringOffset roomTitleOffset) { builder.AddOffset(0, roomTitleOffset.Value, 0); }
+  public static void AddRoomId(FlatBufferBuilder builder, uint roomId) { builder.AddUint(1, roomId, 0); }
+  public static void AddCurMemberCount(FlatBufferBuilder builder, byte curMemberCount) { builder.AddByte(2, curMemberCount, 0); }
+  public static void AddTheme(FlatBufferBuilder builder, byte theme) { builder.AddByte(3, theme, 0); }
+  public static void AddPassword(FlatBufferBuilder builder, StringOffset passwordOffset) { builder.AddOffset(4, passwordOffset.Value, 0); }
   public static Offset<RoomInfo> EndRoomInfo(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<RoomInfo>(o);
@@ -61,11 +67,11 @@ static public class RoomInfoVerify
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {
     return verifier.VerifyTableStart(tablePos)
-      && verifier.VerifyField(tablePos, 4 /*RoomId*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 6 /*Level*/, 4 /*int*/, 4, false)
-      && verifier.VerifyString(tablePos, 8 /*Password*/, false)
-      && verifier.VerifyField(tablePos, 10 /*MemberCount*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 12 /*CurMemberCount*/, 4 /*int*/, 4, false)
+      && verifier.VerifyString(tablePos, 4 /*RoomTitle*/, false)
+      && verifier.VerifyField(tablePos, 6 /*RoomId*/, 4 /*uint*/, 4, false)
+      && verifier.VerifyField(tablePos, 8 /*CurMemberCount*/, 1 /*byte*/, 1, false)
+      && verifier.VerifyField(tablePos, 10 /*Theme*/, 1 /*byte*/, 1, false)
+      && verifier.VerifyString(tablePos, 12 /*Password*/, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }
