@@ -1,0 +1,20 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=360da532a76331040aaa1a3e1214458c&amp;type=3#MainMenu" />
+    <Style src="project://database/Assets/UI/roomlist-styles.uss?fileID=7433441132597879392&amp;guid=a84e6f6f1761f9a4a851b3070aa11c0c&amp;type=3#roomlist-styles" />
+    <engine:VisualElement name="Main-menu-screen" class="screen screen-background" style="align-content: auto; align-self: center; align-items: center; justify-content: flex-start; height: 1080px; width: 1920px; flex-direction: row;">
+        <engine:VisualElement style="flex-grow: 1; align-items: center; width: 70%; align-self: flex-start; align-content: flex-start; margin-right: 0; margin-left: 0; margin-bottom: 0; margin-top: 0; padding-bottom: 0; color: rgb(137, 135, 135); background-color: rgba(226, 165, 165, 0.8); -unity-background-image-tint-color: rgb(120, 105, 105); background-size: 100% 100%; background-position-x: center 0; border-top-width: 30px; justify-content: space-around; height: 100%; flex-direction: row; border-right-width: 30px; border-bottom-width: 30px; border-left-width: 30px;">
+            <engine:ListView name="room-list" class="button" style="flex-direction: column; justify-content: center; align-items: center; width: 975px; height: 861px; align-self: center; margin-top: 50px; margin-bottom: 50px; margin-right: 0; margin-left: 0; padding-left: 50px; border-right-width: 0; padding-right: 50px;" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 1; align-self: flex-start; align-items: stretch; justify-content: space-around; width: 20%; align-content: center; height: 100%; flex-direction: column; -unity-text-align: upper-left; background-position-x: center 0; -unity-background-scale-mode: stretch-to-fill; background-position-y: top 0; transform-origin: center; border-left-width: 0;">
+            <engine:VisualElement style="flex-grow: 1; height: 70%; margin-top: 56px;">
+                <engine:Button text="MAKE ROOM" name="make-room" />
+                <engine:Button text="JOIN ROOM" name="join-room" />
+            </engine:VisualElement>
+            <engine:VisualElement style="flex-grow: 1; height: 30%; flex-direction: column-reverse;">
+                <engine:TextField label="비밀번호" placeholder-text="filler text" name="password-input" style="flex-direction: column;" />
+                <engine:TextField label="방제목" placeholder-text="filler text" name="roomname-input" style="flex-direction: column;" />
+                <engine:DropdownField label="Dropdown" name="member-count" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
