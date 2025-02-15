@@ -15,3 +15,5 @@
 **/**/**/64x
 **/**/**/bin
 **/**/**/obj
+Server/Common/*.cs
+Server/Common/**/*.cs
