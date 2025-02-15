@@ -30,6 +30,6 @@ for %%f in (*.cs) do (
 )
 
 XCOPY /Y ".\Client\PacketManager.cs" "%CLIENT_SCRIPT_PATH%\Packet"
-XCOPY /Y ".\Client\PacketManager.cs" "%SERVER_SCRIPT_PATH%\Packet"
+XCOPY /Y ".\Server\PacketManager.cs" "%SERVER_SCRIPT_PATH%\Packet"
 
 pause

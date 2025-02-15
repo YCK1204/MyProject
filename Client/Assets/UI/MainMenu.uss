@@ -1,0 +1,62 @@
+.button:hover {
+    background-color: rgba(233, 120, 120, 0);
+    -unity-background-image-tint-color: rgb(219, 22, 22);
+    -unity-slice-scale: 1.1px;
+}
+
+.button {
+    transition-duration: 0.35s;
+    -unity-text-outline-color: rgba(77, 77, 77, 0);
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    background-image: url("project://database/Assets/simple%20UI%20&%20icons/box/box_event2.png?fileID=2800000&guid=1481334038ea30a4bbbeb1912d9230ff&type=3#box_event2");
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.screen {
+    flex-grow: 1;
+    align-items: center;
+}
+
+.screen-background {
+    background-image: resource('Image/BG/test');
+}
+
+.menu-center-panel {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    width: 50%;
+    height: 100%;
+}
+
+.menu-background-color {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.menu-button-list {
+    flex-grow: 1;
+    align-items: center;
+    align-self: auto;
+    align-content: auto;
+    width: 50%;
+    min-width: 200px;
+}
+
+.menu-button {
+    width: 100%;
+    height: 35px;
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+    -unity-font-style: bold;
+}

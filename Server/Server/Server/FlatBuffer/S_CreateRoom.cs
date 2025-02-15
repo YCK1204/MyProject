@@ -16,7 +16,7 @@ public struct S_CreateRoom : IFlatbufferObject
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
   public S_CreateRoom __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
-  public CreateRoomError Ok { get { int o = __p.__offset(4); return o != 0 ? (CreateRoomError)__p.bb.GetUshort(o + __p.bb_pos) : CreateRoomError.SUCCESS; } }
+  public CreateRoomError Ok { get { int o = __p.__offset(4); return o != 0 ? (CreateRoomError)__p.bb.Get(o + __p.bb_pos) : CreateRoomError.SUCCESS; } }
 
   public static Offset<S_CreateRoom> CreateS_CreateRoom(FlatBufferBuilder builder,
       CreateRoomError ok = CreateRoomError.SUCCESS) {
@@ -26,7 +26,7 @@ public struct S_CreateRoom : IFlatbufferObject
   }
 
   public static void StartS_CreateRoom(FlatBufferBuilder builder) { builder.StartTable(1); }
-  public static void AddOk(FlatBufferBuilder builder, CreateRoomError ok) { builder.AddUshort(0, (ushort)ok, 0); }
+  public static void AddOk(FlatBufferBuilder builder, CreateRoomError ok) { builder.AddByte(0, (byte)ok, 0); }
   public static Offset<S_CreateRoom> EndS_CreateRoom(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<S_CreateRoom>(o);
@@ -39,7 +39,7 @@ static public class S_CreateRoomVerify
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {
     return verifier.VerifyTableStart(tablePos)
-      && verifier.VerifyField(tablePos, 4 /*Ok*/, 2 /*CreateRoomError*/, 2, false)
+      && verifier.VerifyField(tablePos, 4 /*Ok*/, 1 /*CreateRoomError*/, 1, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

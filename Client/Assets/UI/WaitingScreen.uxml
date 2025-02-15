@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/roomwait.uss?fileID=7433441132597879392&amp;guid=3698304135f575240bc37a9cd2c697ff&amp;type=3#roomwait" />
+    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-self: flex-end; width: 150px; align-items: stretch; height: 0;" />
+    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-self: flex-end; width: 150px; align-items: stretch; height: 0;" />
+    <engine:VisualElement name="VisualElement" style="flex-grow: 1; align-self: flex-end; width: 150px; align-items: stretch; height: 0;">
+        <engine:Button text="Character Selection&#10;" name="selection-button" />
+    </engine:VisualElement>
+    <engine:TabView name="selection-view" style="align-items: center; align-self: center; justify-content: flex-end; width: 327px; height: 354px; flex-direction: column-reverse; flex-wrap: nowrap; align-content: flex-start; top: 0; bottom: 0;">
+        <engine:Label text="Wait" name="room-Info" style="-unity-text-align: upper-center; width: 301px;" />
+    </engine:TabView>
+</engine:UXML>

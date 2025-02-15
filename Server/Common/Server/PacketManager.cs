@@ -13,11 +13,7 @@ public class PacketManager
     }
     void Register()
     {
-        _handler.Add((ushort)PacketType.C_Spawn, PacketHandler.C_SpawnHandler);
-		_handler.Add((ushort)PacketType.C_LeaveRoom, PacketHandler.C_LeaveRoomHandler);
-		_handler.Add((ushort)PacketType.C_EnterRoom, PacketHandler.C_EnterRoomHandler);
-		_handler.Add((ushort)PacketType.C_CreateRoom, PacketHandler.C_CreateRoomHandler);
-		_handler.Add((ushort)PacketType.C_RoomList, PacketHandler.C_RoomListHandler);
+        _handler.Add((ushort)PacketType.C_CreateRoom, PacketHandler.C_CreateRoomHandler);
 		
     }
     public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)
