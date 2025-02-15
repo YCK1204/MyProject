@@ -1,21 +1,35 @@
-rem 기존 프로토콜 .cs파일들 삭제
+rem 기존 프로토콜 파일들 삭제
+set CLIENT_SCRIPT_PATH=..\..\Client\Assets\Scripts
+set SERVER_SCRIPT_PATH=..\Server\Server
+
+set ROOT_FBS=fbs/Protocol.fbs
+
+rem 환경변수 적용 설정
+setlocal enabledelayedexpansion
+
 del /S /Q "*.cs"
-del /S /Q "..\Server\Server\FlatBuffer\*.cs"
-del /S /Q "..\Client\Assets\Script\FlatBuffer\*.cs"
+del /S /Q "%CLIENT_SCRIPT_PATH%\FlatBuffer\*.cs"
+del /S /Q "%SERVER_SCRIPT_PATH%\FlatBuffer\*.cs"
 
-rem .cs파일 생성
-START ./flatc.exe --csharp "./Protocol.fbs" "./Room.fbs" "Object.fbs"
+set "fileList="
 
-START ../PacketGenerator/bin/Debug/net8.0/PacketGenerator.exe "./Protocol.fbs"
-
-rem 2초 기다린 후 파일 복사
-timeout /t 2 /nobreak >nul
-for %%f in (*.cs) do (
-    copy "%%f" "../Client/Assets/Script/FlatBuffer"
-    copy "%%f" "../Server/Server/FlatBuffer"
+rem 현재 디렉토리의 모든 .fbs 파일을 누적
+for %%f in (./fbs/*.fbs) do (
+    set "fileList=!fileList! fbs/%%f"
 )
-XCOPY /Y ".\Server\PacketManager.cs" "..\Server\Server\Packet"
-XCOPY /Y ".\Client\PacketManager.cs" "..\Client\Assets\Script\Packet"
 
-rem 문제 생겼을 시 pause
-if %ERRORLEVEL% neq 0 pause
+rem flatc 실행 (누적된 파일 리스트를 한 번에 전달)
+START ./flatc.exe --csharp %fileList%
+START ../PacketGenerator/bin/Debug/net8.0/PacketGenerator.exe %ROOT_FBS%
+
+rem 3초 기다린 후 파일 복사
+timeout /t 3 /nobreak >nul
+for %%f in (*.cs) do (
+    copy "%%f" "%CLIENT_SCRIPT_PATH%/FlatBuffer"
+    copy "%%f" "%SERVER_SCRIPT_PATH%/FlatBuffer"
+)
+
+XCOPY /Y ".\Client\PacketManager.cs" "%CLIENT_SCRIPT_PATH%\Packet"
+XCOPY /Y ".\Client\PacketManager.cs" "%SERVER_SCRIPT_PATH%\Packet"
+
+pause

@@ -1,0 +1,6 @@
+include "Room.fbs";
+
+union PacketType {
+	C_CreateRoom,
+	S_CreateRoom,
+}

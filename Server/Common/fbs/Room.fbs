@@ -1,0 +1,24 @@
+table RoomInfo {
+	room_title:string;
+	room_id:uint32;
+	cur_member_count:uint8;
+	theme:uint8;
+	password:string;
+}
+
+table C_CreateRoom {
+	password:string;
+	room_title:string;
+	theme:uint8;
+}
+
+enum CreateRoomError : uint8 {
+	SUCCESS,
+	INVALID_PW,
+	INVALID_TITLE,
+	UNKNOWN,
+}
+
+table S_CreateRoom {
+	ok:CreateRoomError;
+}
