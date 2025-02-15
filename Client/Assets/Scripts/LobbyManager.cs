@@ -2,7 +2,10 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 using System.Linq;
+//테마 리스트/ 더불클릭이나, joinbutton누를시 UI가 출력되게 하는거  그죠?
 
+//그리고 입장이 완료되면 새로운 신으로 돌아가게 하는거( 대기실)
+//만약 OUT을 할경우 LOBBY로 다시 이동하게 설정하는거 
 public class LobbyManager : MonoBehaviour
 {
     private UIDocument uiDocument;
