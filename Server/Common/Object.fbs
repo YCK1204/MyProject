@@ -1,0 +1,21 @@
+enum Dir : ushort
+{
+    NONE,
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN,
+}
+
+enum ObjectType : ushort
+{
+    NONE,
+    PLAYER,
+}
+
+table PosInfo
+{
+    dir:Dir;
+    x:int;
+    y:int;
+}

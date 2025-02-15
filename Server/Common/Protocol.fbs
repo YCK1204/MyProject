@@ -1,0 +1,14 @@
+include "Room.fbs";
+
+union PacketType {  // 유니온 정의
+    S_Spawn,
+    C_Spawn,
+    S_LeaveRoom,
+    C_LeaveRoom,
+    S_EnterRoom,
+    C_EnterRoom,
+    S_CreateRoom,
+    C_CreateRoom,
+    S_RoomList,
+    C_RoomList,
+}
