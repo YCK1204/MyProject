@@ -1,0 +1,34 @@
+﻿/* roomlist-styles.uss */
+
+/* 방 항목 버튼 */
+.room-item {
+    width: 400px; /* 버튼 크기 */
+    height: 60px; /* 높이 */
+    background-color: #ffffff; /* 배경색 */
+    color: #000000; /* 글자색 */
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px; /* 👈 목록 사이 간격 */
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+
+
+/* 버튼 안의 텍스트 */
+.room-item > .unity-button-label {
+    white-space: normal; /* 텍스트가 여러 줄로 흐르도록 허용 */
+    text-overflow: ellipsis; /* 텍스트가 넘치면 "..."으로 처리 */
+    overflow: hidden; /* 텍스트가 넘치는 부분 숨김 */
+    color: black;
+   
+}
+
+/* 버튼에 마우스를 올렸을 때 */
+.room-item:hover {
+    background-color: #e0e0e0; /* 호버 시 배경색 변경 */
+}
+
+/* 버튼 클릭 시 */
+.room-item:active {
+    background-color: #c0c0c0; /* 클릭 시 배경색 변경 */
+}

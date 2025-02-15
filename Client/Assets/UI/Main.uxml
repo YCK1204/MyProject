@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=360da532a76331040aaa1a3e1214458c&amp;type=3#MainMenu" />
+    <ui:VisualElement name="Main-menu-screen" class="screen screen-background" style="align-content: auto; align-self: auto; align-items: center; justify-content: flex-start;">
+        <ui:VisualElement name="menu-center-panel" class="menu-center-panel menu-background-color" style="height: 94%; justify-content: flex-start; align-self: center;">
+            <ui:VisualElement name="menu-start-title" style="flex-grow: 1; width: 100%; height: 20%; align-items: stretch; justify-content: flex-start; align-self: auto; align-content: auto; min-height: 150px; background-image: url(&quot;project://database/Assets/simple%20UI%20&amp;%20icons/icons/icon_08.png?fileID=2800000&amp;guid=b9907cd3f24a4544a9c6be4152badfde&amp;type=3#icon_08&quot;); margin-top: 50px; opacity: 1; margin-bottom: 50px; margin-right: 0; margin-left: 0; -unity-background-scale-mode: scale-to-fit;" />
+            <ui:VisualElement name="menu-button-list" class="menu-button-list">
+                <ui:Button text="SinglePlay" name="SinglePlayButton" class="button menu-button" />
+                <ui:Button text="MultiPlay" name="MultiPlayButton" class="button menu-button" />
+                <ui:Button text="Setting&#10;" name="SettingsButton" class="button menu-button" />
+                <ui:Button text="Exit" name="ExitButton" class="button menu-button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

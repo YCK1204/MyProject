@@ -1,0 +1,14 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=360da532a76331040aaa1a3e1214458c&amp;type=3#MainMenu" />
+    <engine:VisualElement name="settings-screen" class="screen screen-background" style="align-content: auto; align-self: auto; align-items: center; justify-content: flex-start;">
+        <engine:VisualElement name="menu-center-panel" class="menu-center-panel menu-background-color" style="height: 94%; justify-content: flex-start; align-self: center;">
+            <engine:VisualElement name="settings-title" style="flex-grow: 1; width: 100%; height: 10px; align-items: stretch; justify-content: flex-start; align-self: auto; align-content: auto; min-height: 150px; margin-top: 50px; opacity: 1; margin-bottom: 50px; margin-right: 0; margin-left: 0; -unity-background-scale-mode: scale-to-fit;">
+                <engine:Label text="Settings" style="width: 100%; height: 100%; font-size: 40px; -unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-align: upper-center; justify-content: flex-start; align-self: center; align-content: flex-start; align-items: stretch;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="menu-button-list" class="menu-button-list">
+                <engine:Button text="-&#10;" class="button menu-button" />
+                <engine:Button text="Back" name="back-to-menu-button" class="button menu-button" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
