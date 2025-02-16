@@ -15,7 +15,7 @@
 **/**/**/64x
 **/**/**/bin
 **/**/**/obj
-Server/Common/*.cs
-Server/Common/**/*.cs
-Server/Server/Server/FlatBuffer/*.cs
-Client/Scripts/FlatBuffer/*.cs
+**/Common/*.cs
+**/Common/**/*.cs
+**/Server/Server/FlatBuffer/*.cs
+**/Assets/Scripts/FlatBuffer/*.cs
