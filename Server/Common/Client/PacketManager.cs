@@ -14,6 +14,7 @@ public class PacketManager
     void Register()
     {
         _handler.Add((ushort)PacketType.S_CreateRoom, PacketHandler.S_CreateRoomHandler);
+		_handler.Add((ushort)PacketType.S_RoomInfo, PacketHandler.S_RoomInfoHandler);
 		
     }
     public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)

@@ -7,29 +7,20 @@ using System.Threading.Tasks;
 
 namespace Server.Session
 {
-    public class SessionManager : IManager
+    public class SessionManager
     {
-        int _id = 0;
-        Dictionary<int, ClientSession> _sessions = new Dictionary<int, ClientSession>();
+        UInt64 _id = 0;
+        Dictionary<UInt64, ClientSession> _sessions = new Dictionary<UInt64, ClientSession>();
         object _lock = new object();
-        public void Clear()
+        public void Push(ClientSession session)
         {
-        }
-
-        public void Init()
-        {
-        }
-        public ClientSession Generate()
-        {
-            ClientSession session = new ClientSession();
             lock (_lock)
             {
-                session.ID = ++_id;
-                _sessions.Add(_id, session);
+                session.UserInfo = new Server.Session.UserInfo(); // 스팀 계정에 따라 초기화 필요
+                session.UserInfo.ID = ++_id;
             }
-            return session;
         }
-        public ClientSession Find(int id)
+        public ClientSession Find(UInt64 id)
         {
             ClientSession session = null;
             lock (_lock)
@@ -39,10 +30,16 @@ namespace Server.Session
             }
             return session;
         }
-        public bool Remove(int id)
+        public bool Remove(UInt64 id)
         {
             lock (_lock)
             {
+                ClientSession session = Find(id);
+                if (session != null)
+                {
+                    session.UserInfo = null;
+                    Manager.Pool.Push<ClientSession>(session);
+                }
                 return _sessions.Remove(id);
             }
         }
