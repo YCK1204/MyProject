@@ -1,0 +1,4 @@
+table UserAccountInfo {
+	nickname:string;
+	id:uint64;
+}

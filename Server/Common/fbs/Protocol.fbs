@@ -3,4 +3,6 @@ include "Room.fbs";
 union PacketType {
 	C_CreateRoom,
 	S_CreateRoom,
+	C_RoomInfo,
+	S_RoomInfo,
 }

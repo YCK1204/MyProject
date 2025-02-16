@@ -1,9 +1,12 @@
+include "User.fbs";
+
 table RoomInfo {
 	room_title:string;
-	room_id:uint32;
+	room_id:uint64;
 	cur_member_count:uint8;
 	theme:uint8;
 	password:string;
+	owner:UserAccountInfo;
 }
 
 table C_CreateRoom {
@@ -21,4 +24,11 @@ enum CreateRoomError : uint8 {
 
 table S_CreateRoom {
 	ok:CreateRoomError;
+}
+
+table C_RoomInfo {
+}
+
+table S_RoomInfo {
+	room_infos:[RoomInfo];
 }
