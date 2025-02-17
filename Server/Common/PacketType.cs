@@ -7,6 +7,8 @@ public enum PacketType : byte
   NONE = 0,
   C_CreateRoom = 1,
   S_CreateRoom = 2,
+  C_RoomInfo = 3,
+  S_RoomInfo = 4,
 };
 
 
@@ -23,6 +25,12 @@ static public class PacketTypeVerify
         break;
       case PacketType.S_CreateRoom:
         result = S_CreateRoomVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.C_RoomInfo:
+        result = C_RoomInfoVerify.Verify(verifier, tablePos);
+        break;
+      case PacketType.S_RoomInfo:
+        result = S_RoomInfoVerify.Verify(verifier, tablePos);
         break;
       default: result = true;
         break;
